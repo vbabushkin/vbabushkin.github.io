@@ -1,283 +1,277 @@
-\documentclass[10pt]{article}
-\usepackage[usenames]{color} %used for font color
-\usepackage{amssymb} %maths
-\usepackage{amsmath} %maths
-\usepackage[utf8]{inputenc} %useful to type directly diacritic characters
-\begin{document}
-\begin{align*}<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <style>
 body {
         margin: 0px;
         padding: 0px;
       }
 .trialDiv {
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  height: 400px;
-  
-  display: none;
-  
-  /*border: 1px solid red;*/
-  }
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	height: 400px;
+	
+	display: none;
+	
+	/*border: 1px solid red;*/
+	}
 #startExperiment:hover{
-  color:white;
+	color:white;
 }
 #instructionsEn{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
-  
-  
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: justify;
-  
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
+	
+	
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: justify;
+	
 }
 
 
 #instructionsCn{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
-  
-  
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: justify;
-  
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
+	
+	
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: justify;
+	
 }
 
 #consentEn{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: justify;
-  display: none;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: justify;
+	display: none;
 }
 
 #consentCn{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: justify;
-  display: none;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: justify;
+	display: none;
 }
 
 #debriefEn{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: justify;
-  display: none;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: justify;
+	display: none;
 }
 
 #debriefCn{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: justify;
-  display: none;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: justify;
+	display: none;
 }
  
 .questionsDiv{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
-  
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: left;
-  
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
+	
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: left;
+	
 }
  
  
  .panasDiv{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
-  
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: left;
-  
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
+	
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: left;
+	
 }
 
 .senseNonSenseDiv{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
 
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: left;  
-  line-height:2;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: left;	
+	line-height:2;
 }
 
 
 .demographicsDiv{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
 
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: left;  
-  line-height:2;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: left;	
+	line-height:2;
 }
 
 #mortSalienceEn{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
 
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: left;  
-  line-height:2;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: left;	
+	line-height:2;
 }
 
 #dentSalienceEn{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
 
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: left;  
-  line-height:2;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: left;	
+	line-height:2;
 }
 
 
 #mortSalienceCn{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
 
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: left;  
-  line-height:2;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: left;	
+	line-height:2;
 }
 
 #dentSalienceCn{
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
 
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: left;  
-  line-height:2;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: left;	
+	line-height:2;
 }
 
 .button {
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    background-color: gray; 
-    color: black;
-    margin: 0 auto;
-  width: 200px;
-  padding: 5px;
-    
-    margin-top: 100px;
-  text-align: center;
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  float: right;
-    
+  	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+  	background-color: gray; 
+  	color: black;
+  	margin: 0 auto;
+	width: 200px;
+	padding: 5px;
+  	
+  	margin-top: 100px;
+	text-align: center;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	float: right;
+  	
 }
 
 .button:hover {
-   background-color: gray; 
-    color: white;
-    margin: 0 auto;
-  width: 200px;
-  padding: 5px;
-  
-  margin-top: 100px;
-  text-align: center;
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  border: 4px inset gray;
-  float: right;
-  }
-  
+ 	background-color: gray; 
+  	color: white;
+  	margin: 0 auto;
+	width: 200px;
+	padding: 5px;
+	
+	margin-top: 100px;
+	text-align: center;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	border: 4px inset gray;
+	float: right;
+	}
+	
 .disabled {
-    opacity: 0.65; 
-    cursor: not-allowed;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    background-color: gray; 
-    color: black;
-    margin: 0 auto;
-  width: 200px;
-  padding: 5px;
-    
-    margin-top: 100px;
-  text-align: center;
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  float: right;
+  	opacity: 0.65; 
+  	cursor: not-allowed;
+  	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+  	background-color: gray; 
+  	color: black;
+  	margin: 0 auto;
+	width: 200px;
+	padding: 5px;
+  	
+  	margin-top: 100px;
+	text-align: center;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	float: right;
 }
 
 
 
 #endOfExperimentEn{
-  padding-top: 200px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
-  
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: center;
-  
+	padding-top: 200px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
+	
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: center;
+	
 }
 #endOfExperimentCn{
-  padding-top: 200px;
-  margin: 0 auto;
-  width: 1340px;
-  
-  display:none;
-  
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  text-align: center;
-  
+	padding-top: 200px;
+	margin: 0 auto;
+	width: 1340px;
+	
+	display:none;
+	
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	text-align: center;
+	
 }
 .container {
   display: flex;
@@ -285,35 +279,35 @@ body {
   margin: 0px 50px 75px 100px;
 }
 #submitButton{
-  -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    background-color: gray; 
-    color: black;
-    margin: 0 auto;
-  width: 200px;
-  padding: 5px;
-  
-    margin-top: 100px;
-  text-align: center;
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  float: right;
-  display:none;
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+  	background-color: gray; 
+  	color: black;
+  	margin: 0 auto;
+	width: 200px;
+	padding: 5px;
+	
+  	margin-top: 100px;
+	text-align: center;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	float: right;
+	display:none;
 }
 
 #submitButton:hover{
-  background-color: gray; 
-    color: white;
-    margin: 0 auto;
-  width: 200px;
-  padding: 5px;
-  
-  margin-top: 100px;
-  text-align: center;
-  font-family: Arial,Helvetica;
-  font-size: 14pt;
-  border: 4px inset gray;
-  float: right;
+	background-color: gray; 
+  	color: white;
+  	margin: 0 auto;
+	width: 200px;
+	padding: 5px;
+	
+	margin-top: 100px;
+	text-align: center;
+	font-family: Arial,Helvetica;
+	font-size: 14pt;
+	border: 4px inset gray;
+	float: right;
 }
 .radio-label {
    display: inline-block;
@@ -529,9 +523,9 @@ var newDate = new Date();
 
 
 jsonSubjData = { 
-        "subId":  subId,
-        "timestamp": newDate
-      };
+		    "subId":  subId,
+		    "timestamp": newDate
+		  };
 
 imageFiles=[
     'https://www.dropbox.com/s/bxuglr0hm9bpql3/handPosition_subj_1_133292303686190247_Rep_1.png?raw=1',
@@ -848,8 +842,7 @@ function switchVisible() {
 
 
 
-  
+	
 
 
-</script>\end{align*}
-\end{document}
+</script>
