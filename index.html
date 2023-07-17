@@ -4,12 +4,852 @@
 \usepackage{amsmath} %maths
 \usepackage[utf8]{inputenc} %useful to type directly diacritic characters
 \begin{document}
-\begin{align*}<!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
-\end{align*}
+\begin{align*}<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<style>
+body {
+        margin: 0px;
+        padding: 0px;
+      }
+.trialDiv {
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  height: 400px;
+  
+  display: none;
+  
+  /*border: 1px solid red;*/
+  }
+#startExperiment:hover{
+  color:white;
+}
+#instructionsEn{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+  
+  
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: justify;
+  
+}
+
+
+#instructionsCn{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+  
+  
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: justify;
+  
+}
+
+#consentEn{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: justify;
+  display: none;
+}
+
+#consentCn{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: justify;
+  display: none;
+}
+
+#debriefEn{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: justify;
+  display: none;
+}
+
+#debriefCn{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: justify;
+  display: none;
+}
+ 
+.questionsDiv{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+  
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: left;
+  
+}
+ 
+ 
+ .panasDiv{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+  
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: left;
+  
+}
+
+.senseNonSenseDiv{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: left;  
+  line-height:2;
+}
+
+
+.demographicsDiv{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: left;  
+  line-height:2;
+}
+
+#mortSalienceEn{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: left;  
+  line-height:2;
+}
+
+#dentSalienceEn{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: left;  
+  line-height:2;
+}
+
+
+#mortSalienceCn{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: left;  
+  line-height:2;
+}
+
+#dentSalienceCn{
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: left;  
+  line-height:2;
+}
+
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: gray; 
+    color: black;
+    margin: 0 auto;
+  width: 200px;
+  padding: 5px;
+    
+    margin-top: 100px;
+  text-align: center;
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  float: right;
+    
+}
+
+.button:hover {
+   background-color: gray; 
+    color: white;
+    margin: 0 auto;
+  width: 200px;
+  padding: 5px;
+  
+  margin-top: 100px;
+  text-align: center;
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  border: 4px inset gray;
+  float: right;
+  }
+  
+.disabled {
+    opacity: 0.65; 
+    cursor: not-allowed;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: gray; 
+    color: black;
+    margin: 0 auto;
+  width: 200px;
+  padding: 5px;
+    
+    margin-top: 100px;
+  text-align: center;
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  float: right;
+}
+
+
+
+#endOfExperimentEn{
+  padding-top: 200px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+  
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: center;
+  
+}
+#endOfExperimentCn{
+  padding-top: 200px;
+  margin: 0 auto;
+  width: 1340px;
+  
+  display:none;
+  
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  text-align: center;
+  
+}
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0px 50px 75px 100px;
+}
+#submitButton{
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: gray; 
+    color: black;
+    margin: 0 auto;
+  width: 200px;
+  padding: 5px;
+  
+    margin-top: 100px;
+  text-align: center;
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  float: right;
+  display:none;
+}
+
+#submitButton:hover{
+  background-color: gray; 
+    color: white;
+    margin: 0 auto;
+  width: 200px;
+  padding: 5px;
+  
+  margin-top: 100px;
+  text-align: center;
+  font-family: Arial,Helvetica;
+  font-size: 14pt;
+  border: 4px inset gray;
+  float: right;
+}
+.radio-label {
+   display: inline-block;
+    vertical-align: top;
+    margin-right: 3%;
+}
+.radio-input {
+   display: inline-block;
+    vertical-align: top;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+#trial2 {
+  display: none;
+}
+
+</style>
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- template for instructions -->
+<div id = "instructionsEn" class = "questionsDiv">
+    <h1>Instructions</h1>
+    <!-- Insert text here -->
+    <p> Your job is to answer each question regarding the quality of handwriting.</p>
+        <button type="button" id = "startExperimentButtonEn" class = "button" >Start Experiment</button>
+</div>
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- template for eoe -->
+<div id = "EndOfEvaluation" class = "questionsDiv">
+    <h1>End of Evaluation</h1>
+    <p>Thank you for evaluating the subjects. Please press "Submit" button to send us your evaluation.</p>
+   <button type="button" id = "Submit" class = "button" >Submit</button>
+</div>
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- demographics -->
+<div id=demographicsEn class = "demographicsDiv" >
+    <h1 align="center">Please fill out the demographic information below.</h1>
+    Your Name: <br>
+    <input type="text" id="name" name="primLanguage" value=""><br> 
+    Your Age: <br>
+    <input type="text" id="ageEn" name="age" value=""><br>
+    Your Gender:<br>
+    <input id="genderEn" name="genderEn" type="radio" value="M" /> Male<br>
+    <input id="genderEn" name="genderEn" type="radio" value="F" /> Female<br>
+    School: <br>
+    <input type="text" id="school" name="citizenship" value=""><br>
+    Level: 
+    <label id="level" name="level" value="Elementary"></label>
+    <select>
+        <option value="1">Elementary</option>
+        <option value="2">Preparatory</option>
+        <option value="3">Secondary</option>
+    </select> <br>
+    Years of Teaching: <br>
+    <input type="text" id="yearsTeaching" name="numCountries" value=""><br>
+    <button type="button" id = "nextToQ1" class = "button">Next</button>
+    <p>&nbsp;</p>
+</div>
+     
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- template for trials -->
+<!-- here we define each of the trials with corresponding controls -->
+<div id = "trial1" class = "questionsDiv" >
+<h1>Word-level Handwriting Assessment</h1>
+<h3>In the handwriting sample, please mark and count the following errors (scroll down):</h3>
+<div class="container" >
+    <div style="width:1000px;height:750px;">  
+        <canvas id="mainCanvas_1" width="1000px" height="750px"></canvas>
+    </div>
+</div>
+Spelling: <input type="text" id="spelling" name="spelling" value=""><br>
+<br>Letter formation: <input type="text" id="letter_form" name="letter_form" value=""><br>
+<br>Letter missing parts (hamza, tooth, etc.) <input type="text" id="letter_missing_parts" name="letter_missing_parts" value=""><br>
+<br>Letter connectivity: <input type="text" id="letter_connect" name="letter_connect" value=""><br>
+<br>Dots: <input type="text" id="dots" name="dots" value=""><br>
+<br><b>Sum of errors:</b> <input type="text" id="sum_of_errors" name="sum_of_errors" value=""><br>
+
+</div>
+
+
+<div id = "trial2" class = "questionsDiv" >
+    <h1>Wholistic Assessment of Handwriting Sample</h1>
+    <h3>In the following questions please consider your overall assessment of the writing (scroll down):</h3>
+    <div class="container" >
+        <div style="width:1000px;height:750px;">  
+            <canvas id="mainCanvas_2" width="1000px" height="750px"></canvas>
+        </div>
+    </div>
+    <p><b>Legibility</b> – How easy/difficult is it to read this person's handwriting?</p>
+    <div class="container">
+        <div style="width:840px;">
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="diff_1" id="diff_1" type="radio" value="1" /> <label class="radio-label">easily</label>
+            </div>
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="diff_2" id="diff_2" type="radio" value="2" /> <label class="radio-label">normal</label>
+            </div>
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="diff_3" id="diff_3" type="radio" value="3" /> <label class="radio-label">hardly</label>
+            </div>
+        </div>
+    </div>
+
+    <p><b>Space management</b>  – Was this person able to fit their writing in the space available? </p>
+    <div class="container">
+        <div style="width:840px;">
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="space_1" id="space_1" type="radio" value="1" /> <label class="radio-label">easily</label>
+            </div>
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="space_2" id="space_2" type="radio" value="2" /> <label class="radio-label">normal</label>
+            </div>
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="space_3" id="space_3" type="radio" value="3" /> <label class="radio-label">hardly</label>
+            </div>
+        </div>
+    </div>
+    
+    <p><b>Handwriting quality</b>  – How consistent was this person in following Arabic handwriting rules? </p>
+    <div class="container">
+        <div style="width:840px;">
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="qual_1" id="qual_1" type="radio" value="1" /> <label class="radio-label">easily</label>
+            </div>
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="qual_2" id="qual_2" type="radio" value="2" /> <label class="radio-label">normal</label>
+            </div>
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="qual_3" id="qual_3" type="radio" value="3" /> <label class="radio-label">hardly</label>
+            </div>
+        </div>
+    </div>
+
+    <p><b>Aesthetics</b>  – How beautiful is the handwriting of this person? </p>
+    <div class="container">
+        <div style="width:840px;">
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="aest_1" id="aest_1" type="radio" value="1" /> <label class="radio-label">not beautiful</label>
+            </div>
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="aest_2" id="aest_2" type="radio" value="2" /> <label class="radio-label">normal</label>
+            </div>
+            <div style="float: left; width: 200px">
+                <input  type = "radio" class = "responseButton"  name="aest_3" id="aest_3" type="radio" value="3" /> <label class="radio-label">beautiful</label>
+            </div>
+        </div>
+    </div>
+
+    <p><b>Legibility score:  <input type="text" id="legibility_score" name="legibility_score" value=""></p>
+</div>
+
+<input id="Button1" type="button"  class = "button" value="Next" onclick="switchVisible();"/>
+
+<!-- here where the JavaScript comes into action -->
+<script >
+
+//var subId = Math.round(1000*Math.random());//TODO: change to inputs from alert box
+var subId = prompt("Please enter your name", "Jhon Doe");
+
+    
+var newDate = new Date();
+//var lang = Math.round(Math.random());
+
+
+jsonSubjData = { 
+        "subId":  subId,
+        "timestamp": newDate
+      };
+
+imageFiles=[
+    'https://www.dropbox.com/s/bxuglr0hm9bpql3/handPosition_subj_1_133292303686190247_Rep_1.png?raw=1',
+    'https://www.dropbox.com/s/4zjvhara8a9dtda/handPosition_subj_1_133292309829154686_Rep_2.png?raw=1',
+    'https://www.dropbox.com/s/o3z2hb16aawl0ne/handPosition_subj_1_133292313908242067_Rep_3.png?raw=1',
+    'https://www.dropbox.com/s/7l7meiwzzrs2era/handPosition_subj_1_133292315896127916_Rep_4.png?raw=1',
+    'https://www.dropbox.com/s/b2nokjobg2ndcsu/handPosition_subj_1_133292317828321339_Rep_5.png?raw=1',
+    'https://www.dropbox.com/s/tzjltn5jbhajzcn/handPosition_subj_2_Rep1_133300017938452051.png?raw=1',
+    'https://www.dropbox.com/s/cqnw07mz0lgqc1t/handPosition_subj_2_Rep2_133300020027782976.png?raw=1',
+    'https://www.dropbox.com/s/9lb4jwujkf69bfy/handPosition_subj_2_Rep3_133300021681596215.png?raw=1',
+    'https://www.dropbox.com/s/va4p0s8pue0fctl/handPosition_subj_2_Rep4_133300023361813749.png?raw=1',
+    'https://www.dropbox.com/s/co5jlgy8hagxvxa/handPosition_subj_2_Rep5_133300025034185048.png?raw=1',
+    'https://www.dropbox.com/s/cvijeagd3t7h1yx/handPosition_subj_2_Rep6_133300026720268090.png?raw=1'
+];
+
+var div1 = document.getElementById('trial1'),
+    div2 = document.getElementById('trial2');
+
+
+var nTrials=imageFiles.length;
+
+currentIdx = 0;
+
+dispInstructions();
+
+
+
+/**
+* for displaying instructions along with start button
+*/
+function dispInstructions(){
+        $('#EndOfEvaluation').hide();
+        $('#instructionsEn').show();
+        $('#Button1').hide();
+        $('#startExperimentButtonEn').click(dispDemographics);
+}
+
+
+/**
+* for displaying demographics
+*/
+function dispDemographics(){
+    $('#instructionsEn').hide();
+    $('#demographicsEn').show();
+    
+    var btn = document.getElementById('nextToQ1');
+    btn.disabled= false;
+
+    $('#nextToQ1').click(function(e) {
+
+        var flag = 0;
+        var isAgeNumeric = /^\d*$/.test(document.getElementById('ageEn').value); //Integer values (positive only):
+        var isYearsOfTeachingNumeric = /^\d*$/.test(document.getElementById('yearsTeaching').value); //Integer values (positive only):
+        var isSchoolString = /^[A-Za-z ]+$/.test(document.getElementById("school").value);
+        var isNameString = /^[A-Za-z]+$/.test(document.getElementById("name").value);
+        //var textLevel = $('#level').val();
+
+        //var sel = document.getElementById("level");
+        //var textLevel= sel.options[sel.selectedIndex].text;
+        //console.log("level of teaching");
+        //console.log(textLevel);
+        if(document.getElementById("ageEn").value == ""){
+            document.getElementById('ageEn').style.borderColor = "1px solid red";
+            document.getElementById('ageEn').style.background =  "#FFCECE";
+
+        }else{
+            isAgeNumeric = /^\d*$/.test(document.getElementById('ageEn').value);
+            if(isAgeNumeric==false){
+                document.getElementById('ageEn').style.borderColor = "1px solid red";
+                document.getElementById('ageEn').style.background =  "#FFCECE";
+
+                }
+            else{
+                document.getElementById('ageEn').style.borderColor = "";
+                document.getElementById('ageEn').style.background = "";
+                flag = flag + 1;
+            }
+            
+        }
+        if(document.getElementById("school").value == ""){
+            document.getElementById('school').style.borderColor = "1px solid red";
+            document.getElementById('school').style.background =  "#FFCECE";
+
+        }else{
+            isSchoolString = /^[A-Za-z ]+$/.test(document.getElementById("school").value);
+            if(isSchoolString==false){
+                document.getElementById('school').style.borderColor = "1px solid red";
+                document.getElementById('school').style.background =  "#FFCECE";
+
+                }
+            else{
+                document.getElementById('school').style.borderColor = "";
+                document.getElementById('school').style.background = "";
+                flag = flag + 1;
+            }
+        }
+        
+        if(document.getElementById("yearsTeaching").value == ""){
+            document.getElementById('yearsTeaching').style.borderColor = "1px solid red";
+            document.getElementById('yearsTeaching').style.background =  "#FFCECE";
+
+        }else{
+            isYearsOfTeachingNumeric = /^\d*$/.test(document.getElementById('yearsTeaching').value);
+            if(isYearsOfTeachingNumeric==false){
+                document.getElementById('yearsTeaching').style.borderColor = "1px solid red";
+                document.getElementById('yearsTeaching').style.background =  "#FFCECE";
+            }
+            else{
+                document.getElementById('yearsTeaching').style.borderColor = "";
+                document.getElementById('yearsTeaching').style.background = "";
+                flag = flag + 1;
+            } 
+        }
+        
+        if(document.getElementById("name").value == ""){
+            document.getElementById('name').style.borderColor = "1px solid red";
+            document.getElementById('name').style.background =  "#FFCECE";
+
+        }else{
+            isNameString = /^[A-Za-z]+$/.test(document.getElementById("name").value);
+            if(isNameString==false){
+                document.getElementById('name').style.borderColor = "1px solid red";
+                document.getElementById('name').style.background =  "#FFCECE";
+
+                }
+            else{
+                document.getElementById('name').style.borderColor = "";
+                document.getElementById('name').style.background = "";
+                flag = flag + 1;
+            }
+            
+        }
+        
+        if($('input[name=genderEn]:checked').length <= 0){
+            document.getElementById('genderEn').style.border = "1px solid red";
+            document.getElementById('genderEn').style.background =  "#FFCECE";
+            var isGenderValid = false;
+            if (flag == 5)
+                alert ( "Please choose your Gender: Male or Female" ); 
+            else
+                alert ( "Please choose your Gender: Male or Female and fill highlighted forms" ); 
+        }else{
+            document.getElementById('genderEn').style.border = "";
+            document.getElementById('genderEn').style.background = "";
+            var isGenderValid = true;
+            flag = flag + 1;
+        }
+        
+        if ( isGenderValid==true && flag == 5) {
+            switchVisible();
+        }
+        else {
+            e.preventDefault();
+        }
+    });    
+        
+}
+
+
+/**
+* for displaying Question1
+*/
+function dispQuestion1(){
+    //record the outputs in text fields
+    var textAgeEn = $('#ageEn').val();
+    //console.log('Age = '+textAgeEn);
+    $("input[type='radio'][name='genderEn']:checked").val()
+    //console.log('Gender = '+$("input[type='radio'][name='genderEn']:checked").val());
+    var textschool = $('#school').val();
+    //console.log('Citizenship  = '+textschool);
+    var textyearsTeaching = $('#yearsTeaching').val();
+    //console.log('Number of countries visited  = '+textyearsTeaching);
+    var textname = $('#name').val();
+    //console.log('Primary language  = '+textname);
+    var textLevel = $('#level').val();
+    console.log("level of teaching");
+    console.log(textLevel);
+    //console.log('Secondary language  = '+textSecondLanguageEn);
+    $('#demographicsEn').hide();
+    $('#questionEn1').show();
+
+    jsonSubjData["name"]=textname;
+    jsonSubjData["age"] =textAgeEn;
+    jsonSubjData["gender"] =$("input[type='radio'][name='genderEn']:checked").val();
+    jsonSubjData["school"] =textschool;
+    jsonSubjData["numYearsTeaching"] =textyearsTeaching;
+    jsonSubjData["level"]=textLevel;
+    
+    var btn = document.getElementById('nextToQ2');
+    btn.disabled=true;
+    var elements = document.querySelectorAll("#ansEnQ1, #ansEnQ2, #ansEnQ3, #ansEnQ4, #ansEnQ5, #ansEnQ6, #ansEnQ7, #ansEnQ8");
+
+    for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener("change", function() {
+                if( $('input[name=ansEnQ1]:checked').length > 0 || 
+                    $('input[name=ansEnQ2]:checked').length > 0 ||
+                    $('input[name=ansEnQ3]:checked').length > 0 || 
+                    $('input[name=ansEnQ4]:checked').length > 0 || 
+                    $('input[name=ansEnQ5]:checked').length > 0 ||
+                    $('input[name=ansEnQ6]:checked').length > 0 ||
+                    $('input[name=ansEnQ7]:checked').length > 0 ||
+                    $('input[name=ansEnQ8]:checked').length > 0) {
+                btn.disabled=false;
+                btn.className = "button";
+            } else {
+                btn.disabled=true;
+                btn.className = "disabled";
+            }
+        });
+        }
+
+    $('#nextToQ2').click(dispQuestion2);
+
+}
+
+/**
+* for displaying Question2
+*/
+function dispQuestion2(){
+    console.log('Current IDX in Q2:');
+    console.log(currentIdx);
+    //$('#instructionsEn').hide();
+    $('#demographicsEn').hide();
+    
+    var textLevel = $('#level').val();
+    console.log("level of teaching");
+    console.log(textLevel);
+
+
+    let canvas = document.getElementById('mainCanvas_1');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, 1000, 750);
+
+    // Create our image
+    let newImage = new Image();
+    newImage.src = imageFiles[currentIdx];
+
+    // When it loads
+    newImage.onload = () => {
+        // Draw the image onto the context
+        ctx.drawImage(newImage, 0, 0, 1000, 750);
+    }
+    //var btn = document.getElementById('nextToQ3');
+    //btn.disabled=false;
+    //$('#nextToQ3').click(dispQuestion3);
+}
+
+
+/**
+* for displaying Question3
+*/
+function dispQuestion3(){
+    console.log('Current IDX in Q3:');
+    console.log(currentIdx);
+    //$('#trial1').hide();
+    //$('#trial2').show();
+    let canvas2 = document.getElementById('mainCanvas_2');
+    let ctx2 = canvas2.getContext('2d');
+    ctx2.clearRect(0, 0, 1000, 750);
+
+    // Create our image
+    let newImage = new Image();
+    newImage.src = imageFiles[currentIdx];
+
+    // When it loads
+    newImage.onload = () => {
+        // Draw the image onto the context
+        ctx2.drawImage(newImage, 0, 0, 1000, 750);
+    }
+    //var btn = document.getElementById('nextToQ4');
+    //btn.disabled=false;
+    ctx2.clearRect(0, 0, 1000, 750);
+    //$('#nextToQ4').click(increaseIdx);
+}
+
+
+function increaseIdx(){
+    currentIdx = currentIdx+1;
+    var getValue= document.getElementById("spelling");
+        if (getValue.value !="") {
+            getValue.value = "";
+        }
+}
+
+/**
+* for displaying eoe
+*/
+function dispEndOfEvaluation(){
+        $('#trial1').hide();
+        $('#Button1').hide();
+        $('#EndOfEvaluation').show();
+}
+
+function switchVisible() {
+  console.log(nTrials);
+  $('#Button1').show();
+  if(!div1) return;
+  dispQuestion2();
+  if (getComputedStyle(div1).display == 'block') {
+    div1.style.display = 'none';
+    div2.style.display = 'block';
+  } else {
+    div1.style.display = 'block';
+    div2.style.display = 'none';
+    dispQuestion3();
+    increaseIdx();
+    if(currentIdx>nTrials){
+        dispEndOfEvaluation();
+    }
+  }
+}
+
+
+
+
+
+  
+
+
+</script>\end{align*}
 \end{document}
