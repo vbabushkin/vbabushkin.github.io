@@ -368,6 +368,27 @@ body {
   display: none;
 }
 
+.flex-container {
+    display: flex;
+    width: 102%;
+}
+
+.flex-child {
+    flex: 1;
+    width: 35%;
+}  
+
+.flex-child:first-child {
+    width: 67%;
+    margin-right: 2px;
+} 
+
+#tbl {
+    font-family: Arial,Helvetica;
+	font-size: 14pt;
+    line-height: 30pt;
+}
+
 </style>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -404,8 +425,8 @@ body {
     School: <br>
     <input type="text" id="school" name="citizenship" value=""><br>
     Level: 
-    <label id="level" name="level" value="Elementary"></label>
-    <select>
+    <label id="lblLevel" name="lblLevel" value="Elementary"></label>
+    <select id="level" name="level" class="style12">
         <option value="1">Elementary</option>
         <option value="2">Preparatory</option>
         <option value="3">Secondary</option>
@@ -421,135 +442,534 @@ body {
 <!-- template for trials -->
 <!-- here we define each of the trials with corresponding controls -->
 <div id = "trial1" class = "questionsDiv" >
-<h1>Word-level Handwriting Assessment</h1>
-<h3>In the handwriting sample, please mark and count the following errors (scroll down):</h3>
-<div class="container" >
-    <div style="width:1000px;height:750px;">  
-        <canvas id="mainCanvas_1" width="1000px" height="750px"></canvas>
+    <h3>Reference text</h3>
+    <div class="container" >
+        <div style="width:955px;height:126px;">  
+            <canvas id="mainCanvas_2" width="955px" height="126px"></canvas>
+        </div>
     </div>
-</div>
-Spelling: <input type="text" id="spelling" name="spelling" value=""><br>
-<br>Letter formation: <input type="text" id="letter_form" name="letter_form" value=""><br>
-<br>Letter missing parts (hamza, tooth, etc.) <input type="text" id="letter_missing_parts" name="letter_missing_parts" value=""><br>
-<br>Letter connectivity: <input type="text" id="letter_connect" name="letter_connect" value=""><br>
-<br>Dots: <input type="text" id="dots" name="dots" value=""><br>
-<br><b>Sum of errors:</b> <input type="text" id="sum_of_errors" name="sum_of_errors" value=""><br>
-
-</div>
-
-
-<div id = "trial2" class = "questionsDiv" >
-    <h1>Wholistic Assessment of Handwriting Sample</h1>
-    <h3>In the following questions please consider your overall assessment of the writing (scroll down):</h3>
+    <h3>Handwriting sample</h3>
     <div class="container" >
         <div style="width:1000px;height:750px;">  
-            <canvas id="mainCanvas_2" width="1000px" height="750px"></canvas>
-        </div>
-    </div>
-    <p><b>Legibility</b> – How easy/difficult is it to read this person's handwriting?</p>
-    <div class="container">
-        <div style="width:840px;">
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="diff_1" id="diff_1" type="radio" value="1" /> <label class="radio-label">easily</label>
-            </div>
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="diff_2" id="diff_2" type="radio" value="2" /> <label class="radio-label">normal</label>
-            </div>
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="diff_3" id="diff_3" type="radio" value="3" /> <label class="radio-label">hardly</label>
-            </div>
+            <canvas id="mainCanvas_1" width="1000px" height="750px"></canvas>
         </div>
     </div>
 
-    <p><b>Space management</b>  – Was this person able to fit their writing in the space available? </p>
-    <div class="container">
-        <div style="width:840px;">
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="space_1" id="space_1" type="radio" value="1" /> <label class="radio-label">easily</label>
-            </div>
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="space_2" id="space_2" type="radio" value="2" /> <label class="radio-label">normal</label>
-            </div>
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="space_3" id="space_3" type="radio" value="3" /> <label class="radio-label">hardly</label>
-            </div>
+    <div class="flex-container">
+
+        <div class="flex-child magenta">
+            <h2>Word-level Handwriting Assessment</h2>
+            <h3>In the handwriting sample above, please mark and count the following errors (scroll down):</h3>
+
+            <table id="tbl">
+                <tbody>
+                <tr>
+                <td>Spelling:</td>
+                <td> <input type="text" id="spelling" name="spelling" value="" class="myclass"></td>
+                </tr>
+                <tr>
+                <td>Letter formation:</td>
+                <td><input type="text" id="letter_form" name="letter_form" value="" class="myclass"></td>
+                </tr>
+                <tr>
+                <td>Letter missing parts (hamza, tooth, etc.):</td>
+                <td><input type="text" id="letter_missing_parts" name="letter_missing_parts" value="" class="myclass"></td>
+                </tr>
+                <tr>
+                <td>Letter connectivity:</td>
+                <td><input type="text" id="letter_connect" name="letter_connect" value="" class="myclass"></td>
+                </tr>
+                <tr>
+                <td>Dots:</td>
+                <td><input type="text" id="dots" name="dots" value="" class="myclass"></td>
+                </tr>
+                </tbody>
+                </table>
+            <br><b>Sum of errors:</b> <input type="text" id="sum_of_errors" name="sum_of_errors" value=""><br>
         </div>
-    </div>
-    
-    <p><b>Handwriting quality</b>  – How consistent was this person in following Arabic handwriting rules? </p>
-    <div class="container">
-        <div style="width:840px;">
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="qual_1" id="qual_1" type="radio" value="1" /> <label class="radio-label">easily</label>
-            </div>
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="qual_2" id="qual_2" type="radio" value="2" /> <label class="radio-label">normal</label>
-            </div>
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="qual_3" id="qual_3" type="radio" value="3" /> <label class="radio-label">hardly</label>
-            </div>
+        
+        <div class="flex-child green">
+            <h2>Wholistic Assessment of Handwriting Sample</h2>
+            <h3>In the following questions please consider your overall assessment of the writing (scroll down):</h3>
+            <p><b>Legibility</b> – How easy/difficult is it to read this person's handwriting?</p>
+                <form name="legibility_radio" style="width:840px">
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="diff" id="diff" type="radio" value="1" /> <label class="radio-label">easily</label>
+                    </div>
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="diff" id="diff" type="radio" value="2" /> <label class="radio-label">normal</label>
+                    </div>
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="diff" id="diff" type="radio" value="3" /> <label class="radio-label">hardly</label>
+                    </div>
+                </form>
+            <br>
+            <p><b>Space management</b>  – Was this person able to fit their writing in the space available? </p>
+                <form name="space_radio" style="width:840px">
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="space" id="space" type="radio" value="1" /> <label class="radio-label">easily</label>
+                    </div>
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="space" id="space" type="radio" value="2" /> <label class="radio-label">normal</label>
+                    </div>
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="space" id="space" type="radio" value="3" /> <label class="radio-label">hardly</label>
+                    </div>
+                </form>
+            <br>
+            <p><b>Handwriting quality</b>  – How consistent was this person in following Arabic handwriting rules? </p>
+                <form name="quality_radio" style="width:840px; padding: 0; margin-top: 5px">
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="qual" id="qual" type="radio" value="1" /> <label class="radio-label">easily</label>
+                    </div>
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="qual" id="qual" type="radio" value="2" /> <label class="radio-label">normal</label>
+                    </div>
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="qual" id="qual" type="radio" value="3" /> <label class="radio-label">hardly</label>
+                    </div>
+                </form>
+            <br>
+            <p><b>Aesthetics</b>  – How beautiful is the handwriting of this person? </p>
+                <form name="aesthetics_radio" style="width:840px; padding: 0; margin-top: 5px">
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="aest" id="aest" type="radio" value="1" /> <label class="radio-label">not beautiful</label>
+                    </div>
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="aest" id="aest" type="radio" value="2" /> <label class="radio-label">normal</label>
+                    </div>
+                    <div style="float: left; width: 150px">
+                        <input  type = "radio" class = "responseButton"  name="aest" id="aest" type="radio" value="3" /> <label class="radio-label">beautiful</label>
+                    </div>
+                </form>
+            
+            <br>
+            <p><b>Legibility score: </b>  <input type="text" id="legibility_score" name="legibility" value=""></p>
         </div>
+        
     </div>
 
-    <p><b>Aesthetics</b>  – How beautiful is the handwriting of this person? </p>
-    <div class="container">
-        <div style="width:840px;">
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="aest_1" id="aest_1" type="radio" value="1" /> <label class="radio-label">not beautiful</label>
-            </div>
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="aest_2" id="aest_2" type="radio" value="2" /> <label class="radio-label">normal</label>
-            </div>
-            <div style="float: left; width: 200px">
-                <input  type = "radio" class = "responseButton"  name="aest_3" id="aest_3" type="radio" value="3" /> <label class="radio-label">beautiful</label>
-            </div>
-        </div>
-    </div>
-
-    <p><b>Legibility score:  <input type="text" id="legibility_score" name="legibility_score" value=""></p>
 </div>
 
-<input id="Button1" type="button"  class = "button" value="Next" onclick="switchVisible();"/>
+<input id="Next" type="button"  class = "button" value="Next" onclick="increaseIdx();"/>
+<input id="Previous" type="button"  class = "button" value="Previous" onclick="decreaseIdx();"/>
 
 <!-- here where the JavaScript comes into action -->
 <script >
 
-//var subId = Math.round(1000*Math.random());//TODO: change to inputs from alert box
-var subId = prompt("Please enter your name", "Jhon Doe");
 
-    
+let req = new XMLHttpRequest();
+var currentTaskId=0;
+var currentIdx = 0;
+var sub=0;
+var rep=0;
+var obj ="";
+
+req.onreadystatechange = () => {
+  if (req.readyState == XMLHttpRequest.DONE) {
+    obj = req.responseText;
+  }
+};
+
+var apiKey = "$2b$10$GxlBjXk1TPiRn4AlVuL.aeI9qaKXRLc4QvhaWU4AQtAOTMlwmXNna";
+//  all the participated experts are stored in the participated_experts.json
+req.open("GET", "https://api.jsonbin.io/v3/b/64b9edb89d312622a3825454/latest", false);
+req.setRequestHeader("X-Master-Key",apiKey);
+req.send();
+
+//
+console.log("Outside of function");
+console.log(obj);
+
+
+listOfExperts = JSON.parse(obj);//to store the list of experts who already participated in the study
+var allExpertsParticipatedArray = listOfExperts.record.experts;
+
+
+//var subId = Math.round(1000*Math.random());//TODO: change to inputs from alert box
+var subId = prompt("Please enter your name", "Jhon Doe"); // at the beginning of the program the expert enters his/her name
+console.log(subId);
+var foundExpertIdx =0;
+var expertFound = false; 
+for(var i = 0; i < allExpertsParticipatedArray.length; i++){ //iterate over list of experts who have already participated
+    if(subId === allExpertsParticipatedArray[i].name){//if expert is found set the flag to true
+        console.log("The expert's record is found");
+        expertFound = true;
+        foundExpertIdx = i;
+        break; // exit loop if found
+    }
+    else{//else keep the flag  false
+        foundExpertIdx = 0;
+        expertFound = false;
+    };
+};
+// timestamp for experts' json 
 var newDate = new Date();
+var foundBinId;
+var doNotRecord = false; // if expert found the previous currentIdx result is displayed. Set this flag to true to prevent repeated entries in json file
+console.log(expertFound);
+
+//Get a list of input fields to sum
+var elements = ["spelling","letter_form","letter_missing_parts","letter_connect","dots"];
+var element_array = Array.prototype.slice.call(elements);
+
+//this is to sum up dynamically the values in textboxes
+$(".myclass").on("change", function(){
+    var value1 = document.getElementById('spelling').value;
+    var value2 = document.getElementById('letter_form').value;
+    var value3 = document.getElementById('letter_missing_parts').value;
+    var value4 = document.getElementById('letter_connect').value;
+    var value5 = document.getElementById('dots').value;
+    var sum = parseInt(value1 || '0') + parseInt(value2 || '0')+ parseInt(value3 || '0')+ parseInt(value4 || '0')+ parseInt(value5 || '0'); 
+    $("#sum_of_errors").val(sum);
+});
+
+//  this is to sum up dynamically the values in radiobuttons
+$(".responseButton").click(function() {
+  var total = 0;
+  $(".responseButton:checked").each(function() { total += +this.value; });
+  $("#legibility_score").val(total);
+});
+
+if(expertFound){ //if name is found -- open expert's file
+    doNotRecord = true;
+    console.log("Expert found")
+    let req_read = new XMLHttpRequest();
+    foundBinId = allExpertsParticipatedArray[foundExpertIdx].binId;
+    var foundExpertDataObj ="";
+
+    req_read.onreadystatechange = () => {
+        if (req_read.readyState == XMLHttpRequest.DONE) {
+            foundExpertDataObj = req_read.responseText;
+        }
+    };
+
+    // open the existing json file for the found expert
+    req_read.open("GET", "https://api.jsonbin.io/v3/b/"+foundBinId+"/latest", false);
+    req_read.setRequestHeader("X-Master-Key",apiKey);
+    req_read.send();
+
+    jsonCurrentExpData = JSON.parse(foundExpertDataObj);
+
+    currentIdx = jsonCurrentExpData.record["idx"];
+
+}
+else{// else create a new json file and store the expert's name and binID
+    currentIdx = 0;
+    doNotRecord = false;
+    console.log("No record found")
+    jsonExpData_tmp = { 
+		    "name":  subId,
+		    "timestamp": newDate,
+            "samples":[],
+		  };
+    jsonCurrentExpDataStr = JSON.stringify(jsonExpData_tmp);
+    var txtObj = ""
+    // open a new request to create the new bin for a new expert
+    let req_create = new XMLHttpRequest();
+    req_create.onreadystatechange = () => {
+    if (req_create.readyState == XMLHttpRequest.DONE) {
+        txtObj = req_create.responseText;
+        console.log(txtObj);
+        }
+    };
+    req_create.open("POST", "https://api.jsonbin.io/v3/b", false);
+    req_create.setRequestHeader("Content-Type", "application/json");
+    req_create.setRequestHeader("X-Master-Key", apiKey);
+    req_create.setRequestHeader("X-Bin-Private",false);
+    req_create.setRequestHeader("X-Bin-Name",subId);
+    req_create.send(jsonCurrentExpDataStr);
+
+    console.log("txtObj");
+    console.log(txtObj);
+    jsonFile = JSON.parse(txtObj);
+    foundBinId = jsonFile.metadata.id;
+
+    //assign the newly-created json to jsonCurrentExpData
+    jsonCurrentExpData = jsonFile;
+
+    console.log("created bin ID");
+    console.log(foundBinId);
+
+    listOfExperts.record['experts'].push({"name": subId,"binId":foundBinId});
+    console.log(listOfExperts.record);
+    jsonStr = JSON.stringify(listOfExperts.record);
+    console.log(jsonStr);
+
+    // update the records
+    let reqUpdate = new XMLHttpRequest();
+
+    reqUpdate.onreadystatechange = () => {
+        if (reqUpdate.readyState == XMLHttpRequest.DONE) {
+            console.log(reqUpdate.responseText);
+        }
+    };
+
+    reqUpdate.open("PUT", "https://api.jsonbin.io/v3/b/64b9edb89d312622a3825454", false);
+    reqUpdate.setRequestHeader("Content-Type", "application/json");
+    reqUpdate.setRequestHeader("X-Master-Key", apiKey);
+    reqUpdate.send(jsonStr);
+    
+};
+
+console.log(jsonCurrentExpData.record);
+
+// // test if the recorded new expert appears in the experts' JSON:
+// for(var i = 0; i < allExpertsParticipatedArray.length; i++){ //iterate over list of experts who have already participated
+//     console.log(allExpertsParticipatedArray[i]);
+// }
+
+
+
 //var lang = Math.round(Math.random());
 
-
-jsonSubjData = { 
-		    "subId":  subId,
-		    "timestamp": newDate
-		  };
-
 imageFiles=[
-    'https://www.dropbox.com/s/bxuglr0hm9bpql3/handPosition_subj_1_133292303686190247_Rep_1.png?raw=1',
-    'https://www.dropbox.com/s/4zjvhara8a9dtda/handPosition_subj_1_133292309829154686_Rep_2.png?raw=1',
-    'https://www.dropbox.com/s/o3z2hb16aawl0ne/handPosition_subj_1_133292313908242067_Rep_3.png?raw=1',
-    'https://www.dropbox.com/s/7l7meiwzzrs2era/handPosition_subj_1_133292315896127916_Rep_4.png?raw=1',
-    'https://www.dropbox.com/s/b2nokjobg2ndcsu/handPosition_subj_1_133292317828321339_Rep_5.png?raw=1',
+    'https://www.dropbox.com/s/bxuglr0hm9bpql3/handPosition_subj_1_Rep1_133292303686190247.png?raw=1',
+    'https://www.dropbox.com/s/4zjvhara8a9dtda/handPosition_subj_1_Rep2_133292309829154686.png?raw=1',
+    'https://www.dropbox.com/s/o3z2hb16aawl0ne/handPosition_subj_1_Rep3_133292313908242067.png?raw=1',
+    'https://www.dropbox.com/s/7l7meiwzzrs2era/handPosition_subj_1_Rep4_133292315896127916.png?raw=1',
+    'https://www.dropbox.com/s/b2nokjobg2ndcsu/handPosition_subj_1_Rep5_133292317828321339.png?raw=1',
     'https://www.dropbox.com/s/tzjltn5jbhajzcn/handPosition_subj_2_Rep1_133300017938452051.png?raw=1',
     'https://www.dropbox.com/s/cqnw07mz0lgqc1t/handPosition_subj_2_Rep2_133300020027782976.png?raw=1',
     'https://www.dropbox.com/s/9lb4jwujkf69bfy/handPosition_subj_2_Rep3_133300021681596215.png?raw=1',
     'https://www.dropbox.com/s/va4p0s8pue0fctl/handPosition_subj_2_Rep4_133300023361813749.png?raw=1',
     'https://www.dropbox.com/s/co5jlgy8hagxvxa/handPosition_subj_2_Rep5_133300025034185048.png?raw=1',
-    'https://www.dropbox.com/s/cvijeagd3t7h1yx/handPosition_subj_2_Rep6_133300026720268090.png?raw=1'
+    'https://www.dropbox.com/s/cvijeagd3t7h1yx/handPosition_subj_2_Rep6_133300026720268090.png?raw=1',
+    'https://www.dropbox.com/s/a4y7ugi4bzp913f/handPosition_subj_3_Rep1_133299246396192412.png?raw=1',
+    'https://www.dropbox.com/s/43woeh7ykd3fx7r/handPosition_subj_3_Rep2_133299248982198719.png?raw=1',
+    'https://www.dropbox.com/s/5w65zvjxb8yu4p8/handPosition_subj_3_Rep3_133299250986398132.png?raw=1',
+    'https://www.dropbox.com/s/te1qd4swoismr80/handPosition_subj_3_Rep4_133299253157318800.png?raw=1',
+    'https://www.dropbox.com/s/geze6jv6pazyniq/handPosition_subj_3_Rep5_133299254943427755.png?raw=1',
+    'https://www.dropbox.com/s/4krr84kkilxmump/handPosition_subj_3_Rep6_133299256790961789.png?raw=1',
+    'https://www.dropbox.com/s/c7cat6rojo7hheb/handPosition_subj_4_Rep1_133300752327127472.png?raw=1',
+    'https://www.dropbox.com/s/rv31pxcspw8lttc/handPosition_subj_4_Rep2_133300754636417555.png?raw=1',
+    'https://www.dropbox.com/s/aq7ap47opejgb5c/handPosition_subj_4_Rep3_133300756390697889.png?raw=1',
+    'https://www.dropbox.com/s/nez53s10dnuo8yz/handPosition_subj_4_Rep4_133300757775414620.png?raw=1',
+    'https://www.dropbox.com/s/e2je80nhk21jnmk/handPosition_subj_4_Rep5_133300759262384291.png?raw=1',
+    'https://www.dropbox.com/s/xjgq8hba7tnb1hv/handPosition_subj_4_Rep6_133300760690131755.png?raw=1',
+    'https://www.dropbox.com/s/khushlmy8g2i3df/handPosition_subj_5_Rep1_133300858502681387.png?raw=1',
+    'https://www.dropbox.com/s/gwyp6oo1au16tbd/handPosition_subj_5_Rep2_133300860194910234.png?raw=1',
+    'https://www.dropbox.com/s/8snvggobxmx48tl/handPosition_subj_5_Rep3_133300862087577910.png?raw=1',
+    'https://www.dropbox.com/s/nntb77f59ajvpy8/handPosition_subj_5_Rep4_133300865280694537.png?raw=1',
+    'https://www.dropbox.com/s/k3qdkuy0gobifs5/handPosition_subj_5_Rep5_133300867193440473.png?raw=1',
+    'https://www.dropbox.com/s/hz3ym58ouc7otrj/handPosition_subj_5_Rep6_133300868742156367.png?raw=1',
+    'https://www.dropbox.com/s/n476o3u99lux8as/handPosition_subj_6_Rep1_133300894065335511.png?raw=1',
+    'https://www.dropbox.com/s/7h122jt5hxj73lt/handPosition_subj_6_Rep2_133300898029173722.png?raw=1',
+    'https://www.dropbox.com/s/0lyyrcyca9mkogk/handPosition_subj_6_Rep3_133300899404002074.png?raw=1',
+    'https://www.dropbox.com/s/f9flegvl8ykcepx/handPosition_subj_6_Rep4_133300900681034395.png?raw=1',
+    'https://www.dropbox.com/s/zfolng8v1kjkjip/handPosition_subj_6_Rep5_133300902020774551.png?raw=1',
+    'https://www.dropbox.com/s/tj8k5d96qyi30fx/handPosition_subj_6_Rep6_133300903420940862.png?raw=1',
+    'https://www.dropbox.com/s/1ld4xniodqf9ooa/handPosition_subj_7_Rep1_133304246768894595.png?raw=1',
+    'https://www.dropbox.com/s/x3k5o78b7dj3pxq/handPosition_subj_7_Rep2_133304248652911143.png?raw=1',
+    'https://www.dropbox.com/s/xam3gpafnhq0z5v/handPosition_subj_7_Rep3_133304250215720288.png?raw=1',
+    'https://www.dropbox.com/s/8l8a6ra681pru9z/handPosition_subj_7_Rep4_133304251917913863.png?raw=1',
+    'https://www.dropbox.com/s/wbo0d926kgfse9x/handPosition_subj_7_Rep5_133304253433126153.png?raw=1',
+    'https://www.dropbox.com/s/2a0rt3o41oykcui/handPosition_subj_7_Rep6_133304255065203709.png?raw=1',
+    'https://www.dropbox.com/s/a23w7cob1uih6zw/handPosition_subj_8_Rep1_133305110049332906.png?raw=1',
+    'https://www.dropbox.com/s/mz951rpxvgdbgif/handPosition_subj_8_Rep2_133305111622485841.png?raw=1',
+    'https://www.dropbox.com/s/bsbc59h1guo9tja/handPosition_subj_8_Rep3_133305113868302512.png?raw=1',
+    'https://www.dropbox.com/s/im3e4gqtweaje2n/handPosition_subj_8_Rep4_133305115377388044.png?raw=1',
+    'https://www.dropbox.com/s/fmtkou0679fkoqe/handPosition_subj_8_Rep5_133305116878265005.png?raw=1',
+    'https://www.dropbox.com/s/ayp8oteyd1zbkt4/handPosition_subj_8_Rep6_133305118414608679.png?raw=1',
+    'https://www.dropbox.com/s/qe4qcdkkay4jgvl/handPosition_subj_9_Rep1_133305127916268026.png?raw=1',
+    'https://www.dropbox.com/s/80gqv4l0mt0ku6h/handPosition_subj_9_Rep2_133305129963607167.png?raw=1',
+    'https://www.dropbox.com/s/pfhkn9adyyfc6pt/handPosition_subj_9_Rep3_133305135639306837.png?raw=1',
+    'https://www.dropbox.com/s/q5ul80b9x9yiufv/handPosition_subj_9_Rep4_133305138023549308.png?raw=1',
+    'https://www.dropbox.com/s/bathp8aqc0fzb8q/handPosition_subj_9_Rep5_133305140555994975.png?raw=1',
+    'https://www.dropbox.com/s/karh4sufervy5rx/handPosition_subj_9_Rep6_133305142195021117.png?raw=1',
+    'https://www.dropbox.com/s/j2s6ffy1s7sy8kx/handPosition_subj_10_Rep1_133305178219129866.png?raw=1',
+    'https://www.dropbox.com/s/5ia9m6c6cshygvj/handPosition_subj_10_Rep2_133305179574716821.png?raw=1',
+    'https://www.dropbox.com/s/3xtv4vzsr9dq38x/handPosition_subj_10_Rep3_133305180783281415.png?raw=1',
+    'https://www.dropbox.com/s/5rma98iimvfx0ls/handPosition_subj_10_Rep4_133305182220476458.png?raw=1',
+    'https://www.dropbox.com/s/3zvglqdjnefbyif/handPosition_subj_10_Rep5_133305183664007090.png?raw=1',
+    'https://www.dropbox.com/s/8rfblux3dh4be11/handPosition_subj_10_Rep6_133305184917790372.png?raw=1',
+    'https://www.dropbox.com/s/juq893cn2ocnzbl/handPosition_subj_11_Rep1_133305231945589023.png?raw=1',
+    'https://www.dropbox.com/s/d5bikxgkbq6xgdo/handPosition_subj_11_Rep2_133305233327338106.png?raw=1',
+    'https://www.dropbox.com/s/bzi69l4qu0u0wx0/handPosition_subj_11_Rep3_133305234915622519.png?raw=1',
+    'https://www.dropbox.com/s/5s6ovgvfuu0gvx8/handPosition_subj_11_Rep4_133305236082932269.png?raw=1',
+    'https://www.dropbox.com/s/466lvrat168tqpk/handPosition_subj_11_Rep5_133305237212065304.png?raw=1',
+    'https://www.dropbox.com/s/3c9b6eafap43uhr/handPosition_subj_11_Rep6_133305238388232888.png?raw=1',
+    'https://www.dropbox.com/s/rlwj1za8pjuzd7t/handPosition_subj_12_Rep1_133306078063639989.png?raw=1',
+    'https://www.dropbox.com/s/9qtslpmvu9wsit7/handPosition_subj_12_Rep2_133306079652517817.png?raw=1',
+    'https://www.dropbox.com/s/7j9ozb6uwe7tzvo/handPosition_subj_12_Rep3_133306081037552493.png?raw=1',
+    'https://www.dropbox.com/s/bhscxil2v9qxupk/handPosition_subj_12_Rep4_133306082429785501.png?raw=1',
+    'https://www.dropbox.com/s/b5hngpvar3q67qj/handPosition_subj_12_Rep5_133306083731293855.png?raw=1',
+    'https://www.dropbox.com/s/xqxv7j323tmo3gd/handPosition_subj_12_Rep6_133306085088710227.png?raw=1',
+    'https://www.dropbox.com/s/vsovz2fdv54qpc6/handPosition_subj_13_Rep1_133306101968505124.png?raw=1',
+    'https://www.dropbox.com/s/9333w83som2s7iq/handPosition_subj_13_Rep2_133306103090703274.png?raw=1',
+    'https://www.dropbox.com/s/eok4iz2vymtlqhg/handPosition_subj_13_Rep3_133306104182588532.png?raw=1',
+    'https://www.dropbox.com/s/yqniy9drzmum8y2/handPosition_subj_13_Rep4_133306105450871021.png?raw=1',
+    'https://www.dropbox.com/s/79i4tdqmnncqggb/handPosition_subj_13_Rep5_133306106644811203.png?raw=1',
+    'https://www.dropbox.com/s/671la9l1eqadron/handPosition_subj_13_Rep6_133306107761788104.png?raw=1',
+    'https://www.dropbox.com/s/m8sct00dr17evcl/handPosition_subj_14_Rep1_133306122414092185.png?raw=1',
+    'https://www.dropbox.com/s/6o2cadsogq5uab7/handPosition_subj_14_Rep2_133306124150855113.png?raw=1',
+    'https://www.dropbox.com/s/2rnu7v6cc8ujbsn/handPosition_subj_14_Rep3_133306125788581338.png?raw=1',
+    'https://www.dropbox.com/s/ljd8fvzojmx2sj6/handPosition_subj_14_Rep4_133306127331152240.png?raw=1',
+    'https://www.dropbox.com/s/1lo3ol77u4yj4f1/handPosition_subj_14_Rep5_133306128887744561.png?raw=1',
+    'https://www.dropbox.com/s/wdmew522c3k9iq0/handPosition_subj_14_Rep6_133306130275459672.png?raw=1',
+    'https://www.dropbox.com/s/xgou4dcy6flbuws/handPosition_subj_15_Rep1_133306915168765597.png?raw=1',
+    'https://www.dropbox.com/s/8msaf4twr0uxkmq/handPosition_subj_15_Rep2_133306917670237215.png?raw=1',
+    'https://www.dropbox.com/s/rt71cu8c23x7wvq/handPosition_subj_15_Rep3_133306920423530926.png?raw=1',
+    'https://www.dropbox.com/s/6q5t3ga4mg9dbk6/handPosition_subj_15_Rep4_133306921884068327.png?raw=1',
+    'https://www.dropbox.com/s/pjzo4v8hq2u2a14/handPosition_subj_15_Rep5_133306923257677964.png?raw=1',
+    'https://www.dropbox.com/s/09ej269tc6my8ha/handPosition_subj_15_Rep6_133306924933516430.png?raw=1',
+    'https://www.dropbox.com/s/0eswmh85p77kfkj/handPosition_subj_16_Rep1_133306935007784402.png?raw=1',
+    'https://www.dropbox.com/s/i2pzlaum8bs3jrn/handPosition_subj_16_Rep2_133306937298791866.png?raw=1',
+    'https://www.dropbox.com/s/k8evc7tnvqdlidr/handPosition_subj_16_Rep3_133306938509403525.png?raw=1',
+    'https://www.dropbox.com/s/0v0d3mg6j6p1a1a/handPosition_subj_16_Rep4_133306939637441526.png?raw=1',
+    'https://www.dropbox.com/s/g2ntflcj4nr6u5v/handPosition_subj_16_Rep5_133306940708976712.png?raw=1',
+    'https://www.dropbox.com/s/1t9mvdlh8w742nn/handPosition_subj_16_Rep6_133306941971478767.png?raw=1',
+    'https://www.dropbox.com/s/5c66j8mwlpqsxik/handPosition_subj_17_Rep1_133307013912024895.png?raw=1',
+    'https://www.dropbox.com/s/pu4ebeafphgoony/handPosition_subj_17_Rep2_133307016345261319.png?raw=1',
+    'https://www.dropbox.com/s/z3uyz12ad6icjsu/handPosition_subj_17_Rep3_133307018105136895.png?raw=1',
+    'https://www.dropbox.com/s/v8egdawqqmkofdc/handPosition_subj_17_Rep4_133307019654970777.png?raw=1',
+    'https://www.dropbox.com/s/jksx45byi4dxcj7/handPosition_subj_17_Rep5_133307021398598038.png?raw=1',
+    'https://www.dropbox.com/s/ktue1cb0eidethx/handPosition_subj_17_Rep6_133307022930186173.png?raw=1',
+    'https://www.dropbox.com/s/45rdcc4mqdf5332/handPosition_subj_18_Rep1_133307773099140932.png?raw=1',
+    'https://www.dropbox.com/s/uj5spcvcypr2e87/handPosition_subj_18_Rep2_133307774805532188.png?raw=1',
+    'https://www.dropbox.com/s/mktayy2zfhzp3cv/handPosition_subj_18_Rep3_133307776497490290.png?raw=1',
+    'https://www.dropbox.com/s/xv08apxfppmfwra/handPosition_subj_18_Rep4_133307778181408154.png?raw=1',
+    'https://www.dropbox.com/s/ofrzmcu3fc61qzy/handPosition_subj_18_Rep5_133307779818450314.png?raw=1',
+    'https://www.dropbox.com/s/tsicow1pic0txgd/handPosition_subj_18_Rep6_133307781282572572.png?raw=1',
+    'https://www.dropbox.com/s/gbh6gw3bw8fz69p/handPosition_subj_19_Rep1_133312962424610886.png?raw=1',
+    'https://www.dropbox.com/s/ad0vs5xfzjsx8ii/handPosition_subj_19_Rep2_133312964392477938.png?raw=1',
+    'https://www.dropbox.com/s/emysupi08ya2fv9/handPosition_subj_19_Rep3_133312966540809509.png?raw=1',
+    'https://www.dropbox.com/s/xadf3ff3mv395s5/handPosition_subj_19_Rep4_133312968292190081.png?raw=1',
+    'https://www.dropbox.com/s/96w5kxqkjowitri/handPosition_subj_19_Rep5_133312970554807903.png?raw=1',
+    'https://www.dropbox.com/s/7ndm2ify9dah8qh/handPosition_subj_19_Rep6_133312971885498492.png?raw=1',
+    'https://www.dropbox.com/s/fwexrjspzgg4utt/handPosition_subj_20_Rep1_133310365418120000.png?raw=1',
+    'https://www.dropbox.com/s/xq5c4910udboc1e/handPosition_subj_20_Rep2_133310367329096047.png?raw=1',
+    'https://www.dropbox.com/s/fpue5stm4w4n4yx/handPosition_subj_20_Rep3_133310368859975146.png?raw=1',
+    'https://www.dropbox.com/s/3o3ke2g45nftb05/handPosition_subj_20_Rep4_133310370613498243.png?raw=1',
+    'https://www.dropbox.com/s/a1a80010hb41c6s/handPosition_subj_20_Rep5_133310372091509442.png?raw=1',
+    'https://www.dropbox.com/s/dibcrhq6b0oplwb/handPosition_subj_20_Rep6_133310373625129225.png?raw=1',
+    'https://www.dropbox.com/s/7iuk135foymh1cj/handPosition_subj_21_Rep1_133310460848062462.png?raw=1',
+    'https://www.dropbox.com/s/ju09d1h20eb1j04/handPosition_subj_21_Rep2_133310462624541292.png?raw=1',
+    'https://www.dropbox.com/s/d0zyic1xzpuj1r1/handPosition_subj_21_Rep3_133310464259614823.png?raw=1',
+    'https://www.dropbox.com/s/xyjgi5ha781xmxa/handPosition_subj_21_Rep4_133310465610321108.png?raw=1',
+    'https://www.dropbox.com/s/kfg7kzcjbvdkncz/handPosition_subj_21_Rep5_133310467054339425.png?raw=1',
+    'https://www.dropbox.com/s/1gmvn8egwlxbww7/handPosition_subj_21_Rep6_133310468422597269.png?raw=1',
+    'https://www.dropbox.com/s/dnnoc7dpd1f1eb5/handPosition_subj_22_Rep1_133311251192949932.png?raw=1',
+    'https://www.dropbox.com/s/c1wuhw3mkkzymh5/handPosition_subj_22_Rep2_133311252916710925.png?raw=1',
+    'https://www.dropbox.com/s/tjayt5rxi7q3ylq/handPosition_subj_22_Rep3_133311254294855560.png?raw=1',
+    'https://www.dropbox.com/s/cvlvjawc8warnk5/handPosition_subj_22_Rep4_133311255724699928.png?raw=1',
+    'https://www.dropbox.com/s/oavn7jkups26shh/handPosition_subj_22_Rep5_133311257155161864.png?raw=1',
+    'https://www.dropbox.com/s/02szidskjuxjz39/handPosition_subj_22_Rep6_133311258648172958.png?raw=1',
+    'https://www.dropbox.com/s/kw1z47ujybjogc9/handPosition_subj_23_Rep1_133311267109514487.png?raw=1',
+    'https://www.dropbox.com/s/49fd7m2txmif0dt/handPosition_subj_23_Rep2_133311268884479000.png?raw=1',
+    'https://www.dropbox.com/s/gb4c8b5glyw3ixf/handPosition_subj_23_Rep3_133311270381478557.png?raw=1',
+    'https://www.dropbox.com/s/kpixw9tjlzqtkkw/handPosition_subj_23_Rep4_133311271672144340.png?raw=1',
+    'https://www.dropbox.com/s/upaoz3ldjq3b5ej/handPosition_subj_23_Rep5_133311273010738607.png?raw=1',
+    'https://www.dropbox.com/s/klbcn40hciovrgv/handPosition_subj_23_Rep6_133311274347652839.png?raw=1',
+    'https://www.dropbox.com/s/b0kiuzj3hjt57pq/handPosition_subj_24_Rep1_133312085615100758.png?raw=1',
+    'https://www.dropbox.com/s/umsyr69377upijg/handPosition_subj_24_Rep2_133312088060175571.png?raw=1',
+    'https://www.dropbox.com/s/ec69hz9dg1oysbt/handPosition_subj_24_Rep3_133312090319428923.png?raw=1',
+    'https://www.dropbox.com/s/mfqi5r1gvz81x21/handPosition_subj_24_Rep4_133312091826040714.png?raw=1',
+    'https://www.dropbox.com/s/rc53f6pz8hpa8vh/handPosition_subj_24_Rep5_133312093251678667.png?raw=1',
+    'https://www.dropbox.com/s/i6d41nsco4y8zhi/handPosition_subj_24_Rep6_133312094812946239.png?raw=1',
+    'https://www.dropbox.com/s/wqz648d3a2i6mja/handPosition_subj_25_Rep1_133312127064136772.png?raw=1',
+    'https://www.dropbox.com/s/xww9gcc27t7vif3/handPosition_subj_25_Rep2_133312129237075512.png?raw=1',
+    'https://www.dropbox.com/s/a5hyo8hs7lqtjjl/handPosition_subj_25_Rep3_133312131125282831.png?raw=1',
+    'https://www.dropbox.com/s/z2i12l295733cw3/handPosition_subj_25_Rep4_133312132870594004.png?raw=1',
+    'https://www.dropbox.com/s/a6p24rpnwqgwh8r/handPosition_subj_25_Rep5_133312134460568310.png?raw=1',
+    'https://www.dropbox.com/s/mr02qu8ygswzgx0/handPosition_subj_25_Rep6_133312135980132993.png?raw=1',
+    'https://www.dropbox.com/s/0x8ue380fd3ms4x/handPosition_subj_26_Rep1_133313660775409761.png?raw=1',
+    'https://www.dropbox.com/s/h2bo5lim4bajs6m/handPosition_subj_26_Rep2_133313662532509882.png?raw=1',
+    'https://www.dropbox.com/s/fgjanu79hcx8sm0/handPosition_subj_26_Rep3_133313663960186914.png?raw=1',
+    'https://www.dropbox.com/s/b2wi5axkejx5t51/handPosition_subj_26_Rep4_133313665261496198.png?raw=1',
+    'https://www.dropbox.com/s/7adbloqz9o92wnx/handPosition_subj_26_Rep5_133313666552104090.png?raw=1',
+    'https://www.dropbox.com/s/cax336cm8c1yyju/handPosition_subj_26_Rep6_133313667795206247.png?raw=1',
+    'https://www.dropbox.com/s/7rrjz587701b2pt/handPosition_subj_27_Rep1_133313929976275612.png?raw=1',
+    'https://www.dropbox.com/s/0bq94zmwby6ok9o/handPosition_subj_27_Rep2_133313932187172409.png?raw=1',
+    'https://www.dropbox.com/s/br0jh0j7lmbtjqe/handPosition_subj_27_Rep3_133313934093513390.png?raw=1',
+    'https://www.dropbox.com/s/xqw7sasbehunm0b/handPosition_subj_27_Rep4_133313935658989663.png?raw=1',
+    'https://www.dropbox.com/s/5wile5dsamxq5nz/handPosition_subj_27_Rep5_133313937163241047.png?raw=1',
+    'https://www.dropbox.com/s/0yd9vjmj45grcrc/handPosition_subj_27_Rep6_133313939134961234.png?raw=1',
 ];
 
-var div1 = document.getElementById('trial1'),
-    div2 = document.getElementById('trial2');
+var div1 = document.getElementById('trial1')
+    //div2 = document.getElementById('trial2');
 
 
 var nTrials=imageFiles.length;
 
-currentIdx = 0;
+console.log("Current IDX");
+console.log(currentIdx);
 
-dispInstructions();
+if( currentIdx == 0){
+    dispInstructions();
+}
+else{
+    $('#trial1').show();
+    $('#Next').show();
+    $('#Previous').show();
+    console.log('Current IDX in Q2:');
+    console.log(currentIdx);
+
+    let canvas = document.getElementById('mainCanvas_1');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, 1000, 750);
+
+    // Create our image
+    let newImage = new Image();
+    newImage.src = imageFiles[currentIdx];
+    // parsing the link to extract the unique ID
+    currentTaskId = imageFiles[currentIdx].split("_")[4].split(".")[0];
+    sub = parseInt(imageFiles[currentIdx].split("_")[2]);
+    rep = parseInt(imageFiles[currentIdx].split("_")[3].slice(-1));
+    // When it loads
+    newImage.onload = () => {
+        // Draw the image onto the context
+        ctx.drawImage(newImage, 0, 0, 1000, 750);
+    }
+
+    // Create our image
+    let refTxtImage = new Image();
+    refTxtImage.src = "https://www.dropbox.com/s/uujlihf5is72utf/refText.png?raw=1";
+
+    // When it loads
+    refTxtImage.onload = () => {
+        // Draw the image onto the context
+        ctx2.drawImage(refTxtImage, 0, 0, 955, 126);
+    }
+    console.log('Current IDX in Q3:');
+    console.log(currentIdx);
+
+    let canvas2 = document.getElementById('mainCanvas_2');
+    let ctx2 = canvas2.getContext('2d');
+    ctx2.clearRect(0, 0, 1000, 750);
+
+    var spellingCountInput= document.getElementById("spelling");
+    spellingCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["spellingCount"];
+
+    var letterFormCountInput= document.getElementById("letter_form");
+    letterFormCountInput.value =jsonCurrentExpData.record['samples'][currentIdx]["letterFormCount"];
+
+    var missingPartsCountInput= document.getElementById("letter_missing_parts");
+    missingPartsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["missingPartsCount"];
+    
+    var letterConnectCountInput= document.getElementById("letter_connect");
+    letterConnectCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["letterConnectCount"];
+    
+    var dotsCountInput= document.getElementById("dots");
+    dotsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["dotsCount"];
+    
+    var sumErrorsCountInput= document.getElementById("sum_of_errors");
+    sumErrorsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["sumErrorsCount"];
+
+    var legibilityScoreInput= document.getElementById("legibility_score");
+    legibilityScoreInput.value = jsonCurrentExpData.record['samples'][currentIdx]["legibility_score"];
+
+    document.legibility_radio.diff[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["legibility"])-1].checked=true;
+
+    document.space_radio.space[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["space_manag"])-1].checked=true;
+
+    document.quality_radio.qual[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["quality"])-1].checked=true;
+
+    document.aesthetics_radio.aest[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"])-1].checked=true;
+
+}
+
 
 
 
@@ -559,7 +979,8 @@ dispInstructions();
 function dispInstructions(){
         $('#EndOfEvaluation').hide();
         $('#instructionsEn').show();
-        $('#Button1').hide();
+        $('#Next').hide();
+        $('#Previous').hide();
         $('#startExperimentButtonEn').click(dispDemographics);
 }
 
@@ -579,14 +1000,9 @@ function dispDemographics(){
         var flag = 0;
         var isAgeNumeric = /^\d*$/.test(document.getElementById('ageEn').value); //Integer values (positive only):
         var isYearsOfTeachingNumeric = /^\d*$/.test(document.getElementById('yearsTeaching').value); //Integer values (positive only):
-        var isSchoolString = /^[A-Za-z ]+$/.test(document.getElementById("school").value);
-        var isNameString = /^[A-Za-z]+$/.test(document.getElementById("name").value);
-        //var textLevel = $('#level').val();
+        var isSchoolString = /^[0-9a-zA-Z \-'_]+$/.test(document.getElementById("school").value);
+        var isNameString = /^[A-Za-z \-'_]+$/.test(document.getElementById("name").value);
 
-        //var sel = document.getElementById("level");
-        //var textLevel= sel.options[sel.selectedIndex].text;
-        //console.log("level of teaching");
-        //console.log(textLevel);
         if(document.getElementById("ageEn").value == ""){
             document.getElementById('ageEn').style.borderColor = "1px solid red";
             document.getElementById('ageEn').style.background =  "#FFCECE";
@@ -610,7 +1026,7 @@ function dispDemographics(){
             document.getElementById('school').style.background =  "#FFCECE";
 
         }else{
-            isSchoolString = /^[A-Za-z ]+$/.test(document.getElementById("school").value);
+            isSchoolString = /^[0-9a-zA-Z \-'_]+$/.test(document.getElementById("school").value);
             if(isSchoolString==false){
                 document.getElementById('school').style.borderColor = "1px solid red";
                 document.getElementById('school').style.background =  "#FFCECE";
@@ -645,7 +1061,7 @@ function dispDemographics(){
             document.getElementById('name').style.background =  "#FFCECE";
 
         }else{
-            isNameString = /^[A-Za-z]+$/.test(document.getElementById("name").value);
+            isNameString = /^[A-Za-z \-'_]+$/.test(document.getElementById("name").value);
             if(isNameString==false){
                 document.getElementById('name').style.borderColor = "1px solid red";
                 document.getElementById('name').style.background =  "#FFCECE";
@@ -675,174 +1091,297 @@ function dispDemographics(){
         }
         
         if ( isGenderValid==true && flag == 5) {
-            switchVisible();
+            //record the outputs in text fields
+            var textAgeEn = $('#ageEn').val();
+            var textschool = $('#school').val();
+            var textyearsTeaching = $('#yearsTeaching').val();
+            var textname = $('#name').val();
+            var el = document.getElementById('level');
+            var textLevel = el.options[el.selectedIndex].innerHTML;
+
+            console.log("level of teaching");
+            console.log(textLevel);
+            jsonCurrentExpData.record["expName"]=textname;
+            jsonCurrentExpData.record["age"] =textAgeEn;
+            jsonCurrentExpData.record["gender"] =$("input[type='radio'][name='genderEn']:checked").val();
+            jsonCurrentExpData.record["school"] =textschool;
+            jsonCurrentExpData.record["numYearsTeaching"] =textyearsTeaching;
+            jsonCurrentExpData.record["level"]=textLevel;
+            
+            jsonStrDemographics = JSON.stringify(jsonCurrentExpData.record);
+
+            console.log("foundBinId")
+            console.log(foundBinId)
+
+            console.log("jsonStrDemographics")
+            console.log(jsonStrDemographics)
+            // update the records in experts' json file:
+            let reqUpdateDemographics = new XMLHttpRequest();
+
+            reqUpdateDemographics.onreadystatechange = () => {
+                if (reqUpdateDemographics.readyState == XMLHttpRequest.DONE) {
+                    console.log(reqUpdateDemographics.responseText);
+                }
+            };
+            
+            reqUpdateDemographics.open("PUT", "https://api.jsonbin.io/v3/b/"+foundBinId, false);
+            reqUpdateDemographics.setRequestHeader("Content-Type", "application/json");
+            reqUpdateDemographics.setRequestHeader("X-Master-Key", apiKey);
+            reqUpdateDemographics.send(jsonStrDemographics);
+            if(currentIdx==0){
+                dispQuestion2();
+            }
+            // else{
+            //     increaseIdx();
+            // }
         }
         else {
             e.preventDefault();
         }
-    });    
-        
-}
-
-
-/**
-* for displaying Question1
-*/
-function dispQuestion1(){
-    //record the outputs in text fields
-    var textAgeEn = $('#ageEn').val();
-    //console.log('Age = '+textAgeEn);
-    $("input[type='radio'][name='genderEn']:checked").val()
-    //console.log('Gender = '+$("input[type='radio'][name='genderEn']:checked").val());
-    var textschool = $('#school').val();
-    //console.log('Citizenship  = '+textschool);
-    var textyearsTeaching = $('#yearsTeaching').val();
-    //console.log('Number of countries visited  = '+textyearsTeaching);
-    var textname = $('#name').val();
-    //console.log('Primary language  = '+textname);
-    var textLevel = $('#level').val();
-    console.log("level of teaching");
-    console.log(textLevel);
-    //console.log('Secondary language  = '+textSecondLanguageEn);
-    $('#demographicsEn').hide();
-    $('#questionEn1').show();
-
-    jsonSubjData["name"]=textname;
-    jsonSubjData["age"] =textAgeEn;
-    jsonSubjData["gender"] =$("input[type='radio'][name='genderEn']:checked").val();
-    jsonSubjData["school"] =textschool;
-    jsonSubjData["numYearsTeaching"] =textyearsTeaching;
-    jsonSubjData["level"]=textLevel;
-    
-    var btn = document.getElementById('nextToQ2');
-    btn.disabled=true;
-    var elements = document.querySelectorAll("#ansEnQ1, #ansEnQ2, #ansEnQ3, #ansEnQ4, #ansEnQ5, #ansEnQ6, #ansEnQ7, #ansEnQ8");
-
-    for (var i = 0; i < elements.length; i++) {
-            elements[i].addEventListener("change", function() {
-                if( $('input[name=ansEnQ1]:checked').length > 0 || 
-                    $('input[name=ansEnQ2]:checked').length > 0 ||
-                    $('input[name=ansEnQ3]:checked').length > 0 || 
-                    $('input[name=ansEnQ4]:checked').length > 0 || 
-                    $('input[name=ansEnQ5]:checked').length > 0 ||
-                    $('input[name=ansEnQ6]:checked').length > 0 ||
-                    $('input[name=ansEnQ7]:checked').length > 0 ||
-                    $('input[name=ansEnQ8]:checked').length > 0) {
-                btn.disabled=false;
-                btn.className = "button";
-            } else {
-                btn.disabled=true;
-                btn.className = "disabled";
-            }
-        });
-        }
-
-    $('#nextToQ2').click(dispQuestion2);
-
+    });         
 }
 
 /**
 * for displaying Question2
 */
 function dispQuestion2(){
+    $('#demographicsEn').hide();
+    $('#trial1').show();
+    $('#Next').show();
+    $('#Previous').show();
     console.log('Current IDX in Q2:');
     console.log(currentIdx);
-    //$('#instructionsEn').hide();
-    $('#demographicsEn').hide();
-    
-    var textLevel = $('#level').val();
-    console.log("level of teaching");
-    console.log(textLevel);
-
-
     let canvas = document.getElementById('mainCanvas_1');
     let ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, 1000, 750);
-
     // Create our image
     let newImage = new Image();
     newImage.src = imageFiles[currentIdx];
-
+    // parsing the link to extract the unique ID
+    currentTaskId = imageFiles[currentIdx].split("_")[4].split(".")[0];
+    sub = parseInt(imageFiles[currentIdx].split("_")[2]);
+    rep = parseInt(imageFiles[currentIdx].split("_")[3].slice(-1));
     // When it loads
     newImage.onload = () => {
         // Draw the image onto the context
         ctx.drawImage(newImage, 0, 0, 1000, 750);
     }
-    //var btn = document.getElementById('nextToQ3');
-    //btn.disabled=false;
-    //$('#nextToQ3').click(dispQuestion3);
-}
-
-
-/**
-* for displaying Question3
-*/
-function dispQuestion3(){
+    // Create our image
+    let refTxtImage = new Image();
+    refTxtImage.src = "https://www.dropbox.com/s/uujlihf5is72utf/refText.png?raw=1";
+    // When it loads
+    refTxtImage.onload = () => {
+        // Draw the image onto the context
+        ctx2.drawImage(refTxtImage, 0, 0, 955, 126);
+    }
     console.log('Current IDX in Q3:');
     console.log(currentIdx);
-    //$('#trial1').hide();
-    //$('#trial2').show();
+
     let canvas2 = document.getElementById('mainCanvas_2');
     let ctx2 = canvas2.getContext('2d');
     ctx2.clearRect(0, 0, 1000, 750);
-
-    // Create our image
-    let newImage = new Image();
-    newImage.src = imageFiles[currentIdx];
-
-    // When it loads
-    newImage.onload = () => {
-        // Draw the image onto the context
-        ctx2.drawImage(newImage, 0, 0, 1000, 750);
-    }
-    //var btn = document.getElementById('nextToQ4');
-    //btn.disabled=false;
-    ctx2.clearRect(0, 0, 1000, 750);
-    //$('#nextToQ4').click(increaseIdx);
 }
 
 
 function increaseIdx(){
-    currentIdx = currentIdx+1;
-    var getValue= document.getElementById("spelling");
-        if (getValue.value !="") {
-            getValue.value = "";
+    dispQuestion2();
+    // fill the json data
+    var spellingCount = $("#spelling").val();
+    var missingPartsCount = $("#letter_missing_parts").val();
+    var letterConnectCount = $("#letter_connect").val();
+    var letterFormCount = $("#letter_form").val();
+    var dotsCount = $("#dots").val();
+    var sumErrorsCount = $("#sum_of_errors").val();
+    var legibility  = $("input[type='radio'][name='diff']:checked").val();
+    var space_manag = $("input[type='radio'][name='space']:checked").val();
+    var quality = $("input[type='radio'][name='qual']:checked").val();
+    var aesthetics = $("input[type='radio'][name='aest']:checked").val();
+    var legibilityScore = $("#legibility_score").val();
+
+    var spellingCountInput= document.getElementById("spelling");
+    var missingPartsCountInput= document.getElementById("letter_missing_parts");
+    var letterFormCountInput= document.getElementById("letter_form");
+    var letterConnectCountInput= document.getElementById("letter_connect");
+    var dotsCountInput= document.getElementById("dots");
+    var sumErrorsCountInput= document.getElementById("sum_of_errors");
+    var legibilityScoreInput= document.getElementById("legibility_score");
+
+    console.log(doNotRecord)
+    //if it is the first sample or the 
+    console.log("number of elements in the array")
+    console.log(jsonCurrentExpData.record.samples.length)
+    console.log("current Idx in increase Idx before increasing")
+    console.log(currentIdx)
+
+    if(currentIdx == jsonCurrentExpData.record.samples.length){ // if the record does not exist then push and update
+        //if the previous data are loaded do not update the json entry
+        //if(doNotRecord){
+        jsonCurrentExpData.record["idx"]=currentIdx;
+        jsonCurrentExpData.record['samples'].push({"idx": currentIdx,
+        "currentTaskId":currentTaskId,
+        "sub":sub,
+        "rep":rep,
+        "spellingCount":spellingCount,
+        "missingPartsCount":missingPartsCount,
+        "letterConnectCount":letterConnectCount,
+        "letterFormCount":letterFormCount,
+        "dotsCount":dotsCount,
+        "sumErrorsCount":sumErrorsCount,
+        "legibility":legibility,
+        "space_manag":space_manag,
+        "quality":quality,
+        "aesthetics":aesthetics,
+        "legibility_score":legibilityScore});
+    
+        jsonCurrentExpDataStr = JSON.stringify(jsonCurrentExpData.record);
+
+        // update the records in experts' json file:
+        let reqUpdateSample = new XMLHttpRequest();
+
+        reqUpdateSample.onreadystatechange = () => {
+            if (reqUpdateSample.readyState == XMLHttpRequest.DONE) {
+                console.log(reqUpdateSample.responseText);
+            }
+        };
+
+        reqUpdateSample.open("PUT", "https://api.jsonbin.io/v3/b/"+foundBinId, false);
+        reqUpdateSample.setRequestHeader("Content-Type", "application/json");
+        reqUpdateSample.setRequestHeader("X-Master-Key", apiKey);
+        reqUpdateSample.send(jsonCurrentExpDataStr);
+
+
+    }
+    if(currentIdx < jsonCurrentExpData.record.samples.length){ // if returning from pressing "previous" button
+        // record the fields' values into previous data 
+        if(currentIdx!=0){
+            jsonCurrentExpData.record.samples[currentIdx].spellingCount = spellingCountInput.value;
+            jsonCurrentExpData.record.samples[currentIdx].letterFormCount = letterFormCountInput.value;
+            jsonCurrentExpData.record.samples[currentIdx].missingPartsCount = missingPartsCountInput.value;
+            jsonCurrentExpData.record.samples[currentIdx].letterConnectCount = letterConnectCountInput.value;
+            jsonCurrentExpData.record.samples[currentIdx].dotsCount = dotsCountInput.value;
+            jsonCurrentExpData.record.samples[currentIdx].sumErrorsCount =sumErrorsCountInput.value;
+            jsonCurrentExpData.record.samples[currentIdx].legibility_score =legibilityScoreInput.value;
+    
+            jsonCurrentExpData.record.samples[currentIdx].legibility =legibility;
+            jsonCurrentExpData.record.samples[currentIdx].space_manag =space_manag;
+            jsonCurrentExpData.record.samples[currentIdx].quality =quality;
+            jsonCurrentExpData.record.samples[currentIdx].aesthetics =aesthetics;
         }
+    }
+
+
+
+    doNotRecord=false; // set not recording to false
+
+    // increase currentIdx
+    currentIdx = currentIdx+1;
+    console.log("Showing the preserved json data")
+    console.log(jsonCurrentExpData.record);
+    console.log("Current index in next after increasing");
+    console.log(currentIdx)
+    console.log("Length of the array after increasing");
+    console.log(jsonCurrentExpData.record.samples.length);
+    console.log(jsonCurrentExpData.record);
+    // here we fill the textboxes with the elements of json corresponding to the next index
+    if(currentIdx < jsonCurrentExpData.record.samples.length){
+        spellingCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["spellingCount"];
+        letterFormCountInput.value =jsonCurrentExpData.record['samples'][currentIdx]["letterFormCount"];
+        missingPartsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["missingPartsCount"];
+        letterConnectCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["letterConnectCount"];
+        dotsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["dotsCount"];
+        sumErrorsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["sumErrorsCount"];
+        legibilityScoreInput.value = jsonCurrentExpData.record['samples'][currentIdx]["legibility_score"];
+        document.legibility_radio.diff[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["legibility"])-1].checked=true;
+        console.log(parseInt(jsonCurrentExpData.record['samples'][currentIdx]["legibility"])-1)
+        document.space_radio.space[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["space_manag"])-1].checked=true;
+        console.log(parseInt(jsonCurrentExpData.record['samples'][currentIdx]["space_manag"])-1)
+        document.quality_radio.qual[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["quality"])-1].checked=true;
+        console.log(parseInt(jsonCurrentExpData.record['samples'][currentIdx]["quality"])-1)
+        document.aesthetics_radio.aest[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"])-1].checked=true;
+        console.log(parseInt(jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"])-1)
+    }
+    else{
+        //reset the textfields and radiobuttons
+        if (spellingCountInput.value !="") {
+            spellingCountInput.value = "";
+        }
+        if (missingPartsCountInput.value !="") {
+            missingPartsCountInput.value = "";
+        }
+        if (letterFormCountInput.value !="") {
+            letterFormCountInput.value = "";
+        }
+        if (letterConnectCountInput.value !="") {
+            letterConnectCountInput.value = "";
+        }
+        if (dotsCountInput.value !="") {
+            dotsCountInput.value = "";
+        }
+        if (sumErrorsCountInput.value !="") {
+            sumErrorsCountInput.value = "";
+        }
+        if (legibilityScoreInput.value !="") {
+            legibilityScoreInput.value = "";
+        }
+        $("input[type=radio][name=diff]").prop('checked', false);
+        $("input[type=radio][name=space]").prop('checked', false);
+        $("input[type=radio][name=qual]").prop('checked', false);
+        $("input[type=radio][name=aest]").prop('checked', false);
+    }
+    if(currentIdx>nTrials){
+        dispEndOfEvaluation();
+  }
 }
+
+function decreaseIdx(){
+    console.log("current Idx in decrease Idx before decreasing")
+    console.log(currentIdx)
+
+    doNotRecord=true; // request not to record
+    currentIdx = currentIdx-1;
+    
+    var spellingCountInput= document.getElementById("spelling");
+    spellingCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["spellingCount"];
+
+    var letterFormCountInput= document.getElementById("letter_form");
+    letterFormCountInput.value =jsonCurrentExpData.record['samples'][currentIdx]["letterFormCount"];
+
+    var missingPartsCountInput= document.getElementById("letter_missing_parts");
+    missingPartsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["missingPartsCount"];
+    
+    var letterConnectCountInput= document.getElementById("letter_connect");
+    letterConnectCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["letterConnectCount"];
+    
+    var dotsCountInput= document.getElementById("dots");
+    dotsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["dotsCount"];
+    
+    var sumErrorsCountInput= document.getElementById("sum_of_errors");
+    sumErrorsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["sumErrorsCount"];
+
+    var legibilityScoreInput= document.getElementById("legibility_score");
+    legibilityScoreInput.value = jsonCurrentExpData.record['samples'][currentIdx]["legibility_score"];
+
+    document.legibility_radio.diff[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["legibility"])-1].checked=true;
+    console.log(parseInt(jsonCurrentExpData.record['samples'][currentIdx]["legibility"])-1)
+    document.space_radio.space[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["space_manag"])-1].checked=true;
+    console.log(parseInt(jsonCurrentExpData.record['samples'][currentIdx]["space_manag"])-1)
+    document.quality_radio.qual[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["quality"])-1].checked=true;
+    console.log(parseInt(jsonCurrentExpData.record['samples'][currentIdx]["quality"])-1)
+    document.aesthetics_radio.aest[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"])-1].checked=true;
+    console.log(parseInt(jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"])-1)
+
+    dispQuestion2();
+
+}
+
 
 /**
 * for displaying eoe
 */
 function dispEndOfEvaluation(){
         $('#trial1').hide();
-        $('#Button1').hide();
+        $('#Next').hide();
+        $('#Previous').hide();
         $('#EndOfEvaluation').show();
 }
-
-function switchVisible() {
-  console.log(nTrials);
-  $('#Button1').show();
-  if(!div1) return;
-  dispQuestion2();
-  if (getComputedStyle(div1).display == 'block') {
-    div1.style.display = 'none';
-    div2.style.display = 'block';
-  } else {
-    div1.style.display = 'block';
-    div2.style.display = 'none';
-    dispQuestion3();
-    increaseIdx();
-    if(currentIdx>nTrials){
-        dispEndOfEvaluation();
-    }
-  }
-}
-
-
-
-
-
-	
-
-
 </script>
