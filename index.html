@@ -203,9 +203,9 @@ body {
   	background-color: gray; 
   	color: black;
   	margin: 0 auto;
-	width: 100px;
+	width: 150px;
 	padding: 5px;
-  	
+    
   	margin-top: 100px;
 	text-align: center;
 	font-family: Arial,Helvetica;
@@ -218,7 +218,7 @@ body {
  	background-color: gray; 
   	color: white;
   	margin: 0 auto;
-	width: 100px;
+	width: 150px;
 	padding: 5px;
 	
 	margin-top: 100px;
@@ -237,7 +237,7 @@ body {
   	background-color: gray; 
   	color: black;
   	margin: 0 auto;
-	width: 200px;
+	width: 150px;
 	padding: 5px;
   	
   	margin-top: 100px;
@@ -247,7 +247,15 @@ body {
 	float: right;
 }
 
-
+.container {
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+}
+.container .btn-holder {
+  justify-content: flex-end;
+  display: flex;
+}
 
 #endOfExperimentEn{
 	padding-top: 200px;
@@ -284,7 +292,7 @@ body {
   	background-color: gray; 
   	color: black;
   	margin: 0 auto;
-	width: 100px;
+	width: 150px;
 	padding: 5px;
 	
   	margin-top: 100px;
@@ -370,16 +378,16 @@ body {
 
 .flex-container {
     display: flex;
-    width: 102%;
+    width: 110%;
 }
 
 .flex-child {
     flex: 1;
-    width: 35%;
+    width: 45%;
 }  
 
 .flex-child:first-child {
-    width: 67%;
+    width: 65%;
     margin-right: 2px;
 } 
 
@@ -400,15 +408,23 @@ body {
     <h1>Instructions</h1>
     <!-- Insert text here -->
     <p> Your job is to answer each question regarding the quality of handwriting.</p>
-        <button type="button" id = "startExperimentButtonEn" class = "button" >Start Evaluation</button>
-</div>
+    <div class="container">
+        <div class="btn-holder">
+            <button type="button" id = "startExperimentButtonEn" class = "button" >Start Evaluation</button>
+        </div>
+      </div>
+    </div>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- template for eoe -->
 <div id = "EndOfEvaluation" class = "questionsDiv">
     <h1>End of Evaluation</h1>
     <p>Thank you for evaluating the subjects. Please press "Submit" button to send us your evaluation.</p>
-   <button type="button" id = "Submit" class = "button" >Submit</button>
+    <div class="container">
+        <div class="btn-holder">
+            <button type="button" id = "Submit" class = "button" >Submit</button>
+        </div>
+      </div>
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -416,14 +432,14 @@ body {
 <div id=demographicsEn class = "demographicsDiv" >
     <h1 align="center">Please fill out the demographic information below.</h1>
     Your Name: <br>
-    <input type="text" id="name" name="primLanguage" value=""><br> 
+    <input type="text" id="name" name="name" value=""><br> 
     Your Age: <br>
     <input type="text" id="ageEn" name="age" value=""><br>
     Your Gender:<br>
     <input id="genderEn" name="genderEn" type="radio" value="M" /> Male<br>
     <input id="genderEn" name="genderEn" type="radio" value="F" /> Female<br>
     School: <br>
-    <input type="text" id="school" name="citizenship" value=""><br>
+    <input type="text" id="school" name="school" value=""><br>
     Level: 
     <label id="lblLevel" name="lblLevel" value="Elementary"></label>
     <select id="level" name="level" class="style12">
@@ -432,8 +448,12 @@ body {
         <option value="3">Secondary</option>
     </select> <br>
     Years of Teaching: <br>
-    <input type="text" id="yearsTeaching" name="numCountries" value=""><br>
-    <button type="button" id = "nextToQ1" class = "button">Next</button>
+    <input type="text" id="yearsTeaching" name="yearsTeaching" value=""><br>
+    <div class="container">
+        <div class="btn-holder">
+            <button type="button" id = "nextToQ1" class = "button">Next</button>
+        </div>
+      </div>
     <p>&nbsp;</p>
 </div>
      
@@ -458,7 +478,7 @@ body {
     <div class="flex-container">
 
         <div class="flex-child magenta">
-            <h2>Word-level Handwriting Assessment</h2>
+            <h2>Word-level Assessment of Handwriting Sample</h2>
             <h3>In the handwriting sample above, please mark and count the following errors (scroll down):</h3>
 
             <table id="tbl">
@@ -896,6 +916,14 @@ var nTrials=imageFiles.length;
 console.log("Current IDX");
 console.log(currentIdx);
 
+
+if( typeof currentIdx === 'undefined'){
+    dispInstructions();
+    $('#trial1').hide();
+    $('#Next').hide();
+    $('#Previous').hide();
+    currentIdx = 0;
+}
 if( currentIdx == 0){
     dispInstructions();
 }
