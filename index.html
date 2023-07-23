@@ -7,7 +7,7 @@ body {
 .trialDiv {
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	height: 400px;
 	
 	display: none;
@@ -20,7 +20,7 @@ body {
 #instructionsEn{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 	
@@ -35,7 +35,7 @@ body {
 #instructionsCn{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 	
@@ -49,7 +49,7 @@ body {
 #consentEn{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	font-family: Arial,Helvetica;
 	font-size: 14pt;
@@ -60,7 +60,7 @@ body {
 #consentCn{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	font-family: Arial,Helvetica;
 	font-size: 14pt;
@@ -71,7 +71,7 @@ body {
 #debriefEn{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	font-family: Arial,Helvetica;
 	font-size: 14pt;
@@ -82,7 +82,7 @@ body {
 #debriefCn{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	font-family: Arial,Helvetica;
 	font-size: 14pt;
@@ -93,7 +93,7 @@ body {
 .questionsDiv{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 	
@@ -107,7 +107,7 @@ body {
  .panasDiv{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 	
@@ -120,7 +120,7 @@ body {
 .senseNonSenseDiv{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 
@@ -134,7 +134,7 @@ body {
 .demographicsDiv{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 
@@ -147,7 +147,7 @@ body {
 #mortSalienceEn{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 
@@ -160,7 +160,7 @@ body {
 #dentSalienceEn{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 
@@ -174,7 +174,7 @@ body {
 #mortSalienceCn{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 
@@ -187,7 +187,7 @@ body {
 #dentSalienceCn{
 	padding-top: 50px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 
@@ -203,7 +203,7 @@ body {
   	background-color: gray; 
   	color: black;
   	margin: 0 auto;
-	width: 200px;
+	width: 100px;
 	padding: 5px;
   	
   	margin-top: 100px;
@@ -218,7 +218,7 @@ body {
  	background-color: gray; 
   	color: white;
   	margin: 0 auto;
-	width: 200px;
+	width: 100px;
 	padding: 5px;
 	
 	margin-top: 100px;
@@ -252,7 +252,7 @@ body {
 #endOfExperimentEn{
 	padding-top: 200px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 	
@@ -264,7 +264,7 @@ body {
 #endOfExperimentCn{
 	padding-top: 200px;
 	margin: 0 auto;
-	width: 1340px;
+	width: 1000px;
 	
 	display:none;
 	
@@ -284,7 +284,7 @@ body {
   	background-color: gray; 
   	color: black;
   	margin: 0 auto;
-	width: 200px;
+	width: 100px;
 	padding: 5px;
 	
   	margin-top: 100px;
@@ -299,7 +299,7 @@ body {
 	background-color: gray; 
   	color: white;
   	margin: 0 auto;
-	width: 200px;
+	width: 100px;
 	padding: 5px;
 	
 	margin-top: 100px;
@@ -1338,7 +1338,13 @@ function decreaseIdx(){
     console.log(currentIdx)
 
     doNotRecord=true; // request not to record
-    currentIdx = currentIdx-1;
+    if(currentIdx>0){
+        currentIdx = currentIdx-1;
+    }
+    else{
+        currentIdx = 0;
+    }
+    
     
     var spellingCountInput= document.getElementById("spelling");
     spellingCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["spellingCount"];
@@ -1384,4 +1390,5 @@ function dispEndOfEvaluation(){
         $('#Previous').hide();
         $('#EndOfEvaluation').show();
 }
+
 </script>
