@@ -468,7 +468,7 @@ body {
             <canvas id="mainCanvas_2" width="955px" height="126px"></canvas>
         </div>
     </div>
-    <h3>Handwriting sample</h3>
+    <h3 id="myHeader"> </h3>
     <div class="container" >
         <div style="width:1000px;height:750px;">  
             <canvas id="mainCanvas_1" width="1000px" height="750px"></canvas>
@@ -478,7 +478,7 @@ body {
     <div class="flex-container">
 
         <div class="flex-child magenta">
-            <h2>Word-level Assessment of Handwriting Sample</h2>
+            <h2 id = "myHeader_1"></h2>
             <h3>In the handwriting sample above, please mark and count the following errors (scroll down):</h3>
 
             <table id="tbl">
@@ -509,7 +509,7 @@ body {
         </div>
         
         <div class="flex-child green">
-            <h2>Wholistic Assessment of Handwriting Sample</h2>
+            <h2 id = "myHeader_2"></h2>
             <h3>In the following questions please consider your overall assessment of the writing (scroll down):</h3>
             <p><b>Legibility</b> – How easy/difficult is it to read this person's handwriting?</p>
                 <form name="legibility_radio" style="width:840px">
@@ -933,7 +933,6 @@ else{
     $('#Previous').show();
     console.log('Current IDX in Q2:');
     console.log(currentIdx);
-
     let canvas = document.getElementById('mainCanvas_1');
     let ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, 1000, 750);
@@ -943,6 +942,9 @@ else{
     newImage.src = imageFiles[currentIdx];
     // parsing the link to extract the unique ID
     currentTaskId = imageFiles[currentIdx].split("_")[4].split(".")[0];
+    document.getElementById("myHeader").innerHTML = "Handwriting Sample "+currentTaskId;
+    document.getElementById("myHeader_1").innerHTML = "Word-level Assessment of Handwriting Sample "+currentTaskId;
+    document.getElementById("myHeader_2").innerHTML = "Wholistic Assessment of Handwriting Sample "+currentTaskId;
     sub = parseInt(imageFiles[currentIdx].split("_")[2]);
     rep = parseInt(imageFiles[currentIdx].split("_")[3].slice(-1));
     // When it loads
@@ -1189,6 +1191,9 @@ function dispQuestion2(){
     currentTaskId = imageFiles[currentIdx].split("_")[4].split(".")[0];
     sub = parseInt(imageFiles[currentIdx].split("_")[2]);
     rep = parseInt(imageFiles[currentIdx].split("_")[3].slice(-1));
+    document.getElementById("myHeader").innerHTML = "Handwriting Sample "+currentTaskId;
+    document.getElementById("myHeader_1").innerHTML = "Word-level Assessment of Handwriting Sample "+currentTaskId;
+    document.getElementById("myHeader_2").innerHTML = "Wholistic Assessment of Handwriting Sample "+currentTaskId;
     // When it loads
     newImage.onload = () => {
         // Draw the image onto the context
@@ -1212,7 +1217,7 @@ function dispQuestion2(){
 
 
 function increaseIdx(){
-    dispQuestion2();
+
     // fill the json data
     var spellingCount = $("#spelling").val();
     var missingPartsCount = $("#letter_missing_parts").val();
@@ -1297,12 +1302,11 @@ function increaseIdx(){
         }
     }
 
-
-
     doNotRecord=false; // set not recording to false
 
     // increase currentIdx
     currentIdx = currentIdx+1;
+    dispQuestion2();
     console.log("Showing the preserved json data")
     console.log(jsonCurrentExpData.record);
     console.log("Current index in next after increasing");
