@@ -397,6 +397,9 @@ body {
     line-height: 30pt;
 }
 
+.selected {
+  color: Red;
+}
 </style>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -729,7 +732,19 @@ imageFiles=[
     'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_30_Rep3_133439102216982785.png?raw=1',
     'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_30_Rep4_133439103737938741.png?raw=1',
     'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_30_Rep5_133439105200656384.png?raw=1',
-    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_30_Rep6_133439106776315048.png?raw=1'
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_30_Rep6_133439106776315048.png?raw=1',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_31_Rep1_133439159812480958.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_31_Rep2_133439161780816304.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_31_Rep3_133439163690712472.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_31_Rep4_133439165710904300.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_31_Rep5_133439167774491453.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_31_Rep6_133439170050135537.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_32_Rep1_133439191469745150.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_32_Rep2_133439194638864006.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_32_Rep3_133439196384865272.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_32_Rep4_133439197759549423.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_32_Rep5_133439199243451633.png',
+    'https://github.com/vbabushkin/HandwritingLegibility/blob/main/handPosition_subj_32_Rep6_133439200594523498.png'
 ];
 
 var div1 = document.getElementById('trial1')
@@ -797,24 +812,6 @@ else{
     let canvas2 = document.getElementById('mainCanvas_2');
     let ctx2 = canvas2.getContext('2d');
     ctx2.clearRect(0, 0, 1000, 750);
-
-    // var spellingCountInput= document.getElementById("spelling");
-    // spellingCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["spellingCount"];
-
-    // var letterFormCountInput= document.getElementById("letter_form");
-    // letterFormCountInput.value =jsonCurrentExpData.record['samples'][currentIdx]["letterFormCount"];
-
-    // var missingPartsCountInput= document.getElementById("letter_missing_parts");
-    // missingPartsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["missingPartsCount"];
-    
-    // var letterConnectCountInput= document.getElementById("letter_connect");
-    // letterConnectCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["letterConnectCount"];
-    
-    // var dotsCountInput= document.getElementById("dots");
-    // dotsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["dotsCount"];
-    
-    // var sumErrorsCountInput= document.getElementById("sum_of_errors");
-    // sumErrorsCountInput.value = jsonCurrentExpData.record['samples'][currentIdx]["sumErrorsCount"];
 
     var legibilityScoreInput= document.getElementById("legibility_score");
     legibilityScoreInput.value = jsonCurrentExpData.record['samples'][currentIdx]["legibility_score"];
@@ -1051,140 +1048,334 @@ function dispQuestion2(){
 function increaseIdx(){
 
     // fill the json data
-    // var spellingCount = $("#spelling").val();
-    // var missingPartsCount = $("#letter_missing_parts").val();
-    // var letterConnectCount = $("#letter_connect").val();
-    // var letterFormCount = $("#letter_form").val();
-    // var dotsCount = $("#dots").val();
-    // var sumErrorsCount = $("#sum_of_errors").val();
     var legibility  = $("input[type='radio'][name='diff']:checked").val();
     var space_manag = $("input[type='radio'][name='space']:checked").val();
     var quality = $("input[type='radio'][name='qual']:checked").val();
     var aesthetics = $("input[type='radio'][name='aest']:checked").val();
     var legibilityScore = $("#legibility_score").val();
-
-    // var spellingCountInput= document.getElementById("spelling");
-    // var missingPartsCountInput= document.getElementById("letter_missing_parts");
-    // var letterFormCountInput= document.getElementById("letter_form");
-    // var letterConnectCountInput= document.getElementById("letter_connect");
-    // var dotsCountInput= document.getElementById("dots");
-    // var sumErrorsCountInput= document.getElementById("sum_of_errors");
     var legibilityScoreInput= document.getElementById("legibility_score");
+    const optionContainerLegibility = document.querySelectorAll("input[name=diff]");
+    const optionContainerSpace = document.querySelectorAll("input[name=space]");
+    const optionContainerQual = document.querySelectorAll("input[name=qual]");
+    const optionContainerAest = document.querySelectorAll("input[name=aest]");
+    for (var i = 0; i < optionContainerLegibility.length; i++) {
+            optionContainerLegibility[i].parentElement.classList.remove('selected');
+        }
+        for (var i = 0; i < optionContainerSpace.length; i++) {
+            optionContainerSpace[i].parentElement.classList.remove('selected');
+        }
+        for (var i = 0; i < optionContainerQual.length; i++) {
+            optionContainerQual[i].parentElement.classList.remove('selected');
+        }
+        for (var i = 0; i < optionContainerAest.length; i++) {
+            optionContainerAest[i].parentElement.classList.remove('selected');
+        }
+    if($('input[type=radio][name=diff]:checked').length > 0 &
+       $('input[type=radio][name=space]:checked').length > 0 &
+       $('input[type=radio][name=qual]:checked').length > 0 &
+       $('input[type=radio][name=aest]:checked').length > 0)//if checked all
+    {
+        console.log(doNotRecord)
+        //if it is the first sample or the 
+        console.log("number of elements in the array")
+        console.log(jsonCurrentExpData.record.samples.length)
+        console.log("current Idx in increase Idx before increasing")
+        console.log(currentIdx)
 
-    console.log(doNotRecord)
-    //if it is the first sample or the 
-    console.log("number of elements in the array")
-    console.log(jsonCurrentExpData.record.samples.length)
-    console.log("current Idx in increase Idx before increasing")
-    console.log(currentIdx)
+        if(currentIdx == jsonCurrentExpData.record.samples.length){ // if the record does not exist then push and update
+            //if the previous data are loaded do not update the json entry
+            //if(doNotRecord){
+            jsonCurrentExpData.record["idx"]=currentIdx;
+            jsonCurrentExpData.record['samples'].push({"idx": currentIdx,
+            "currentTaskId":currentTaskId,
+            "sub":sub,
+            "rep":rep,
+            "legibility":legibility,
+            "space_manag":space_manag,
+            "quality":quality,
+            "aesthetics":aesthetics,
+            "legibility_score":legibilityScore});
+        
+            jsonCurrentExpDataStr = JSON.stringify(jsonCurrentExpData.record);
 
-    if(currentIdx == jsonCurrentExpData.record.samples.length){ // if the record does not exist then push and update
-        //if the previous data are loaded do not update the json entry
-        //if(doNotRecord){
-        jsonCurrentExpData.record["idx"]=currentIdx;
-        jsonCurrentExpData.record['samples'].push({"idx": currentIdx,
-        "currentTaskId":currentTaskId,
-        "sub":sub,
-        "rep":rep,
-        // "spellingCount":spellingCount,
-        // "missingPartsCount":missingPartsCount,
-        // "letterConnectCount":letterConnectCount,
-        // "letterFormCount":letterFormCount,
-        // "dotsCount":dotsCount,
-        // "sumErrorsCount":sumErrorsCount,
-        "legibility":legibility,
-        "space_manag":space_manag,
-        "quality":quality,
-        "aesthetics":aesthetics,
-        "legibility_score":legibilityScore});
-    
-        jsonCurrentExpDataStr = JSON.stringify(jsonCurrentExpData.record);
+            // update the records in experts' json file:
+            let reqUpdateSample = new XMLHttpRequest();
 
-        // update the records in experts' json file:
-        let reqUpdateSample = new XMLHttpRequest();
+            reqUpdateSample.onreadystatechange = () => {
+                if (reqUpdateSample.readyState == XMLHttpRequest.DONE) {
+                    console.log(reqUpdateSample.responseText);
+                }
+            };
 
-        reqUpdateSample.onreadystatechange = () => {
-            if (reqUpdateSample.readyState == XMLHttpRequest.DONE) {
-                console.log(reqUpdateSample.responseText);
+            reqUpdateSample.open("PUT", "https://api.jsonbin.io/v3/b/"+foundBinId, false);
+            reqUpdateSample.setRequestHeader("Content-Type", "application/json");
+            reqUpdateSample.setRequestHeader("X-Master-Key", apiKey);
+            reqUpdateSample.send(jsonCurrentExpDataStr);
+
+
+        }
+        if(currentIdx < jsonCurrentExpData.record.samples.length){ // if returning from pressing "previous" button
+            // record the fields' values into previous data 
+            if(currentIdx!=0){
+                jsonCurrentExpData.record.samples[currentIdx].legibility_score =legibilityScoreInput.value;
+                jsonCurrentExpData.record.samples[currentIdx].legibility =legibility;
+                jsonCurrentExpData.record.samples[currentIdx].space_manag =space_manag;
+                jsonCurrentExpData.record.samples[currentIdx].quality =quality;
+                jsonCurrentExpData.record.samples[currentIdx].aesthetics =aesthetics;
             }
-        };
-
-        reqUpdateSample.open("PUT", "https://api.jsonbin.io/v3/b/"+foundBinId, false);
-        reqUpdateSample.setRequestHeader("Content-Type", "application/json");
-        reqUpdateSample.setRequestHeader("X-Master-Key", apiKey);
-        reqUpdateSample.send(jsonCurrentExpDataStr);
-
-
-    }
-    if(currentIdx < jsonCurrentExpData.record.samples.length){ // if returning from pressing "previous" button
-        // record the fields' values into previous data 
-        if(currentIdx!=0){
-            jsonCurrentExpData.record.samples[currentIdx].legibility_score =legibilityScoreInput.value;
-    
-            jsonCurrentExpData.record.samples[currentIdx].legibility =legibility;
-            jsonCurrentExpData.record.samples[currentIdx].space_manag =space_manag;
-            jsonCurrentExpData.record.samples[currentIdx].quality =quality;
-            jsonCurrentExpData.record.samples[currentIdx].aesthetics =aesthetics;
         }
-    }
 
-    doNotRecord=false; // set not recording to false
+        doNotRecord=false; // set not recording to false
+        // increase currentIdx
+        currentIdx = currentIdx+1;
+        dispQuestion2();
+        console.log("Showing the preserved json data")
+        console.log(jsonCurrentExpData.record);
+        console.log("Current index in next after increasing");
+        console.log(currentIdx)
+        console.log("Length of the array after increasing");
+        console.log(jsonCurrentExpData.record.samples.length);
+        console.log(jsonCurrentExpData.record);
 
-    // increase currentIdx
-    currentIdx = currentIdx+1;
-    dispQuestion2();
-    console.log("Showing the preserved json data")
-    console.log(jsonCurrentExpData.record);
-    console.log("Current index in next after increasing");
-    console.log(currentIdx)
-    console.log("Length of the array after increasing");
-    console.log(jsonCurrentExpData.record.samples.length);
-    console.log(jsonCurrentExpData.record);
-
-    // here we fill the textboxes with the elements of json corresponding to the next index
-    if(currentIdx < jsonCurrentExpData.record.samples.length){
-        if (jsonCurrentExpData.record['samples'][currentIdx]["legibility"]!=null) {
-            document.legibility_radio.diff[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["legibility"])-1].checked=true;
-            console.log("legibility")
-            console.log(jsonCurrentExpData.record['samples'][currentIdx]["legibility"])
-        }else{
+        // here we fill the textboxes with the elements of json corresponding to the next index
+        if(currentIdx < jsonCurrentExpData.record.samples.length){
+            if (jsonCurrentExpData.record['samples'][currentIdx]["legibility"]!=null) {
+                document.legibility_radio.diff[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["legibility"])-1].checked=true;
+                console.log("legibility")
+                console.log(jsonCurrentExpData.record['samples'][currentIdx]["legibility"])
+            }else{
+                $("input[type=radio][name=diff]").prop('checked', false);
+            }
+            if (jsonCurrentExpData.record['samples'][currentIdx]["space_manag"]!=null) {
+                document.space_radio.space[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["space_manag"])-1].checked=true;
+                console.log("space_manag")
+                console.log(jsonCurrentExpData.record['samples'][currentIdx]["space_manag"])
+            }else{
+                $("input[type=radio][name=space]").prop('checked', false);
+            }
+            if (jsonCurrentExpData.record['samples'][currentIdx]["quality"]!=null) {
+                document.quality_radio.qual[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["quality"])-1].checked=true;
+                console.log("quality")
+                console.log(jsonCurrentExpData.record['samples'][currentIdx]["quality"])
+            }else{
+                $("input[type=radio][name=qual]").prop('checked', false);
+            }
+            if (jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"]!=null) {
+                document.aesthetics_radio.aest[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"])-1].checked=true;
+                console.log("aesthetics")
+                console.log(jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"])
+            }else{
+                $("input[type=radio][name=aest]").prop('checked', false);
+            }
+            legibilityScoreInput.value = jsonCurrentExpData.record['samples'][currentIdx]["legibility_score"];
+        }
+        else{
+            if (legibilityScoreInput.value !="") {
+                legibilityScoreInput.value = "";
+            }
             $("input[type=radio][name=diff]").prop('checked', false);
-        }
-        if (jsonCurrentExpData.record['samples'][currentIdx]["space_manag"]!=null) {
-            document.space_radio.space[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["space_manag"])-1].checked=true;
-            console.log("space_manag")
-            console.log(jsonCurrentExpData.record['samples'][currentIdx]["space_manag"])
-        }else{
             $("input[type=radio][name=space]").prop('checked', false);
-        }
-        if (jsonCurrentExpData.record['samples'][currentIdx]["quality"]!=null) {
-            document.quality_radio.qual[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["quality"])-1].checked=true;
-            console.log("quality")
-            console.log(jsonCurrentExpData.record['samples'][currentIdx]["quality"])
-        }else{
             $("input[type=radio][name=qual]").prop('checked', false);
-        }
-        if (jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"]!=null) {
-            document.aesthetics_radio.aest[parseInt(jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"])-1].checked=true;
-            console.log("aesthetics")
-            console.log(jsonCurrentExpData.record['samples'][currentIdx]["aesthetics"])
-        }else{
             $("input[type=radio][name=aest]").prop('checked', false);
         }
-        legibilityScoreInput.value = jsonCurrentExpData.record['samples'][currentIdx]["legibility_score"];
-    }
-    else{
-        if (legibilityScoreInput.value !="") {
-            legibilityScoreInput.value = "";
+        if(currentIdx>=nTrials){
+            dispEndOfEvaluation();
         }
-        $("input[type=radio][name=diff]").prop('checked', false);
-        $("input[type=radio][name=space]").prop('checked', false);
-        $("input[type=radio][name=qual]").prop('checked', false);
-        $("input[type=radio][name=aest]").prop('checked', false);
     }
-    if(currentIdx>=nTrials){
-        dispEndOfEvaluation();
-    }
+    else{ //if any of radiobuttons is not checked
+        if( $('input[type=radio][name=diff]:checked').length <= 0 & 
+            $('input[type=radio][name=space]:checked').length > 0 &
+            $('input[type=radio][name=qual]:checked').length > 0 &
+            $('input[type=radio][name=aest]:checked').length > 0){
+            for (var i = 0; i < optionContainerLegibility.length; i++) {
+                    optionContainerLegibility[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the legibility" );
+        }
+        if( $('input[type=radio][name=diff]:checked').length > 0 &
+            $('input[type=radio][name=space]:checked').length <= 0 &
+            $('input[type=radio][name=qual]:checked').length > 0 &
+            $('input[type=radio][name=aest]:checked').length > 0){
+            for (var i = 0; i < optionContainerSpace.length; i++) {
+                optionContainerSpace[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the space management" );
+        }
+        if( $('input[type=radio][name=diff]:checked').length > 0 & 
+            $('input[type=radio][name=space]:checked').length > 0 &
+            $('input[type=radio][name=qual]:checked').length <= 0 &
+            $('input[type=radio][name=aest]:checked').length > 0){
+            for (var i = 0; i < optionContainerQual.length; i++) {
+                optionContainerQual[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the style consistency" );
+        }
+        if( $('input[type=radio][name=diff]:checked').length > 0 & 
+            $('input[type=radio][name=space]:checked').length > 0 &
+            $('input[type=radio][name=qual]:checked').length > 0 &
+            $('input[type=radio][name=aest]:checked').length <= 0 ){
+            for (var i = 0; i < optionContainerAest.length; i++) {
+                optionContainerAest[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the aesthetics" );
+        }
+        // any two of them are not selcted
+        if( $('input[type=radio][name=diff]:checked').length <= 0 & 
+            $('input[type=radio][name=space]:checked').length <= 0 &
+            $('input[type=radio][name=qual]:checked').length > 0 &
+            $('input[type=radio][name=aest]:checked').length > 0){
+            for (var i = 0; i < optionContainerLegibility.length; i++) {
+                optionContainerLegibility[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerSpace.length; i++) {
+                optionContainerSpace[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the legibility and space management" );
+
+        }
+        if( $('input[type=radio][name=diff]:checked').length <= 0 & 
+            $('input[type=radio][name=space]:checked').length > 0 &
+            $('input[type=radio][name=qual]:checked').length <= 0 &
+            $('input[type=radio][name=aest]:checked').length > 0){
+            for (var i = 0; i < optionContainerLegibility.length; i++) {
+                optionContainerLegibility[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerQual.length; i++) {
+                optionContainerQual[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the legibility and style consistency" );
+        }
+        if( $('input[type=radio][name=diff]:checked').length <= 0 & 
+            $('input[type=radio][name=space]:checked').length > 0 &
+            $('input[type=radio][name=qual]:checked').length > 0 &
+            $('input[type=radio][name=aest]:checked').length <= 0){
+            for (var i = 0; i < optionContainerLegibility.length; i++) {
+                optionContainerLegibility[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerAest.length; i++) {
+                optionContainerAest[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the legibility and aesthetics" );
+        }
+        if( $('input[type=radio][name=diff]:checked').length > 0 & 
+            $('input[type=radio][name=space]:checked').length <= 0 &
+            $('input[type=radio][name=qual]:checked').length <= 0 &
+            $('input[type=radio][name=aest]:checked').length > 0){
+            for (var i = 0; i < optionContainerSpace.length; i++) {
+                optionContainerSpace[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerQual.length; i++) {
+                optionContainerQual[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the space management and style consistency" );
+        }
+        if( $('input[type=radio][name=diff]:checked').length > 0 & 
+            $('input[type=radio][name=space]:checked').length <= 0 &
+            $('input[type=radio][name=qual]:checked').length > 0 &
+            $('input[type=radio][name=aest]:checked').length <= 0){
+            for (var i = 0; i < optionContainerSpace.length; i++) {
+                optionContainerSpace[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerAest.length; i++) {
+                optionContainerAest[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the space management and aesthetics" );
+        }
+        if( $('input[type=radio][name=diff]:checked').length > 0 & 
+            $('input[type=radio][name=space]:checked').length > 0 &
+            $('input[type=radio][name=qual]:checked').length <= 0 &
+            $('input[type=radio][name=aest]:checked').length <= 0){
+            for (var i = 0; i < optionContainerQual.length; i++) {
+                optionContainerQual[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerAest.length; i++) {
+                optionContainerAest[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the style consistency and aesthetics" );
+        }
+        // if any three of them are not selected
+        if( $('input[type=radio][name=diff]:checked').length <= 0 & 
+            $('input[type=radio][name=space]:checked').length <= 0 &
+            $('input[type=radio][name=qual]:checked').length <= 0 &
+            $('input[type=radio][name=aest]:checked').length > 0){
+            for (var i = 0; i < optionContainerLegibility.length; i++) {
+                optionContainerLegibility[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerSpace.length; i++) {
+                optionContainerSpace[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerQual.length; i++) {
+                optionContainerQual[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the legibility, space management and style consistency" );
+        }
+        if( $('input[type=radio][name=diff]:checked').length > 0 & 
+            $('input[type=radio][name=space]:checked').length <= 0 &
+            $('input[type=radio][name=qual]:checked').length <= 0 &
+            $('input[type=radio][name=aest]:checked').length <= 0){
+            for (var i = 0; i < optionContainerSpace.length; i++) {
+                optionContainerSpace[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerQual.length; i++) {
+                optionContainerQual[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerAest.length; i++) {
+                optionContainerAest[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the space management, style consistency and aesthetics" );
+        }
+        if( $('input[type=radio][name=diff]:checked').length <= 0 & 
+            $('input[type=radio][name=space]:checked').length > 0 &
+            $('input[type=radio][name=qual]:checked').length <= 0 &
+            $('input[type=radio][name=aest]:checked').length <= 0){
+            for (var i = 0; i < optionContainerLegibility.length; i++) {
+                optionContainerLegibility[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerQual.length; i++) {
+                optionContainerQual[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerAest.length; i++) {
+                optionContainerAest[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the legibility, style consistency and aesthetics" );
+        }
+        if( $('input[type=radio][name=diff]:checked').length <= 0 & 
+            $('input[type=radio][name=space]:checked').length <= 0 &
+            $('input[type=radio][name=qual]:checked').length > 0 &
+            $('input[type=radio][name=aest]:checked').length <= 0){
+            for (var i = 0; i < optionContainerLegibility.length; i++) {
+                optionContainerLegibility[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerSpace.length; i++) {
+                optionContainerSpace[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerAest.length; i++) {
+                optionContainerAest[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the legibility, space management and aestheticsy" );
+        }
+        // if none of them checked
+        if( $('input[type=radio][name=diff]:checked').length <= 0 & 
+            $('input[type=radio][name=space]:checked').length <= 0 &
+            $('input[type=radio][name=qual]:checked').length <= 0 &
+            $('input[type=radio][name=aest]:checked').length <= 0){
+            for (var i = 0; i < optionContainerLegibility.length; i++) {
+                optionContainerLegibility[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerSpace.length; i++) {
+                optionContainerSpace[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerQual.length; i++) {
+                optionContainerQual[i].parentElement.classList.add('selected');
+            }
+            for (var i = 0; i < optionContainerAest.length; i++) {
+                optionContainerAest[i].parentElement.classList.add('selected');
+            }
+            alert ( "Please evaluate the legibility, space management, style consistency and aestheticsy" );
+        }
+
+    } // if all radios are checked
+
 }
 
 function decreaseIdx(){
@@ -1201,6 +1392,22 @@ function decreaseIdx(){
     }
     console.log("current Idx in decrease Idx after decreasing")
     console.log(currentIdx)
+    const optionContainerLegibility = document.querySelectorAll("input[name=diff]");
+    const optionContainerSpace = document.querySelectorAll("input[name=space]");
+    const optionContainerQual = document.querySelectorAll("input[name=qual]");
+    const optionContainerAest = document.querySelectorAll("input[name=aest]");
+    for (var i = 0; i < optionContainerLegibility.length; i++) {
+            optionContainerLegibility[i].parentElement.classList.remove('selected');
+        }
+        for (var i = 0; i < optionContainerSpace.length; i++) {
+            optionContainerSpace[i].parentElement.classList.remove('selected');
+        }
+        for (var i = 0; i < optionContainerQual.length; i++) {
+            optionContainerQual[i].parentElement.classList.remove('selected');
+        }
+        for (var i = 0; i < optionContainerAest.length; i++) {
+            optionContainerAest[i].parentElement.classList.remove('selected');
+        }
     var legibilityScoreInput= document.getElementById("legibility_score");
     legibilityScoreInput.value = jsonCurrentExpData.record['samples'][currentIdx]["legibility_score"];
     console.log(jsonCurrentExpData.record['samples'][currentIdx].hasOwnProperty("legibility"))
