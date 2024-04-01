@@ -482,7 +482,7 @@ body {
         <div class="flex-child green">
             <h2 id = "myHeader_2"></h2>
             <h3>In the following questions please consider your overall assessment of the writing (scroll down):</h3>
-            <p><b>Legibility</b> – How easy/difficult is it to read this person's handwriting?</p>
+            <p><b>Readability</b> – How easy/difficult is it to read this person's handwriting?</p>
                 <form name="legibility_radio" style="width:840px">
                     <div style="float: left; width: 150px">
                         <input  type = "radio" class = "responseButton"  name="diff" id="diff" type="radio" value="1" /> <label class="radio-label">hardly</label>
@@ -912,7 +912,7 @@ else{
     currentTaskId = imageFiles[currentIdx].split("_")[4].split(".")[0];
     document.getElementById("myHeader").innerHTML = "Handwriting Sample "+(currentIdx+1) + " (ID #" +currentTaskId+")";
     //document.getElementById("myHeader_1").innerHTML = "Word-level Assessment of Handwriting Sample "+currentIdx;
-    document.getElementById("myHeader_2").innerHTML = "Wholistic Assessment of Handwriting Sample "+(currentIdx+1);
+    document.getElementById("myHeader_2").innerHTML = "Holistic Assessment of Handwriting Sample "+(currentIdx+1);
     sub = parseInt(imageFiles[currentIdx].split("_")[2]);
     rep = parseInt(imageFiles[currentIdx].split("_")[3].slice(-1));
     // When it loads
@@ -1144,7 +1144,7 @@ function dispQuestion2(){
         rep = parseInt(imageFiles[currentIdx].split("_")[3].slice(-1));
         document.getElementById("myHeader").innerHTML = "Handwriting Sample "+(currentIdx+1) + " (ID # " +currentTaskId+")";
         //document.getElementById("myHeader_1").innerHTML = "Word-level Assessment of Handwriting Sample "+currentTaskId;
-        document.getElementById("myHeader_2").innerHTML = "Wholistic Assessment of Handwriting Sample "+(currentIdx+1);
+        document.getElementById("myHeader_2").innerHTML = "Holistic Assessment of Handwriting Sample "+(currentIdx+1);
         // When it loads
         newImage.onload = () => {
             // Draw the image onto the context
